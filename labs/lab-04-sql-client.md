@@ -5,26 +5,26 @@
 
 ---
 
-## 🎯 Objectifs
+## Objectifs
 
 À la fin de ce lab, vous aurez :
 
-- ✅ Installé Oracle SQL Developer
-- ✅ Créé une connexion à votre base Oracle
-- ✅ Testé la connexion avec succès
-- ✅ Exploré l'interface de SQL Developer
-- ✅ Exécuté votre première requête SQL
+- Installé Oracle SQL Developer
+- Créé une connexion à votre base Oracle
+- Testé la connexion avec succès
+- Exploré l'interface de SQL Developer
+- Exécuté votre première requête SQL
 
 ---
 
-## 📋 Prérequis
+## Prérequis
 
 - Oracle démarré et fonctionnel (Lab 03)
 - Conteneur `oracle-db` en état "healthy"
 
 ---
 
-## 📥 Étape 1 : Télécharger SQL Developer
+## Étape 1 : Télécharger SQL Developer
 
 ### 1.1 Accéder à la page de téléchargement
 
@@ -56,7 +56,7 @@ Rendez-vous sur :
 
 ---
 
-## 🛠️ Étape 2 : Installer SQL Developer
+## Étape 2 : Installer SQL Developer
 
 ### Windows
 
@@ -110,7 +110,7 @@ sqldeveloper
 
 ---
 
-## 🔌 Étape 3 : Créer une connexion à Oracle
+## Étape 3 : Créer une connexion à Oracle
 
 ### 3.1 Ouvrir la fenêtre de connexion
 
@@ -163,7 +163,7 @@ Une fenêtre "New / Select Database Connection" s'ouvre.
 
 ---
 
-## ✅ Étape 4 : Tester la connexion
+## Étape 4 : Tester la connexion
 
 ### 4.1 Cliquer sur "Test"
 
@@ -200,7 +200,7 @@ Status: Failure - Test failed: IO Error: The Network Adapter could not establish
 
 ---
 
-## 🔗 Étape 5 : Sauvegarder et se connecter
+## Étape 5 : Sauvegarder et se connecter
 
 ### 5.1 Sauvegarder la connexion
 
@@ -235,7 +235,7 @@ Connections
 
 ---
 
-## 🖥️ Étape 6 : Explorer l'interface SQL Developer
+## Étape 6 : Explorer l'interface SQL Developer
 
 ### Panneau de gauche : Connections
 
@@ -254,7 +254,7 @@ Connections
 
 ---
 
-## 🧪 Étape 7 : Exécuter votre première requête
+## Étape 7 : Exécuter votre première requête
 
 ### 7.1 Ouvrir un Worksheet
 
@@ -296,7 +296,7 @@ Hello Oracle 23c!
 
 ---
 
-## 📊 Étape 8 : Requêtes d'exploration
+## Étape 8 : Requêtes d'exploration
 
 Essayez ces requêtes pour explorer votre environnement :
 
@@ -359,7 +359,7 @@ USERS              ONLINE
 
 ---
 
-## 🔑 Étape 9 : (Optionnel) Créer une connexion avec l'utilisateur applicatif
+## Étape 9 : (Optionnel) Créer une connexion avec l'utilisateur applicatif
 
 Rappelez-vous : dans `docker-compose.yml`, nous avons créé un utilisateur `appuser`.
 

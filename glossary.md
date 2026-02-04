@@ -1,4 +1,4 @@
-# 📚 Glossaire
+# Glossaire
 
 Définitions des termes techniques utilisés dans ce guide.
 

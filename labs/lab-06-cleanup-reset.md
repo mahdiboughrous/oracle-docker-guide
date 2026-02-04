@@ -5,27 +5,27 @@
 
 ---
 
-## 🎯 Objectifs
+## Objectifs
 
 À la fin de ce lab, vous serez capable de :
 
-- ✅ Arrêter proprement Oracle
-- ✅ Supprimer les conteneurs Docker
-- ✅ Supprimer les volumes (données)
-- ✅ Nettoyer les images Docker inutilisées
-- ✅ Réinitialiser complètement l'environnement
-- ✅ Comprendre la différence entre arrêt et suppression
+- Arrêter proprement Oracle
+- Supprimer les conteneurs Docker
+- Supprimer les volumes (données)
+- Nettoyer les images Docker inutilisées
+- Réinitialiser complètement l'environnement
+- Comprendre la différence entre arrêt et suppression
 
 ---
 
-## 📋 Prérequis
+## Prérequis
 
 - Docker Desktop lancé
 - Terminal ouvert dans le dossier `docker/`
 
 ---
 
-## 🛑 Étape 1 : Arrêter Oracle (sans suppression)
+## Étape 1 : Arrêter Oracle (sans suppression)
 
 ### Commande
 
@@ -60,7 +60,7 @@ NAME   IMAGE   COMMAND   SERVICE   CREATED   STATUS   PORTS
 
 ---
 
-## 💾 Étape 2 : Vérifier les volumes persistants
+## Étape 2 : Vérifier les volumes persistants
 
 Même après `docker compose down`, les données sont conservées dans le volume.
 
@@ -101,7 +101,7 @@ docker volume inspect docker_oracle-data
 
 ---
 
-## 🔄 Étape 3 : Redémarrer avec les données conservées
+## Étape 3 : Redémarrer avec les données conservées
 
 Si vous redémarrez maintenant :
 
@@ -127,7 +127,7 @@ Si vous aviez créé des données dans le Lab 05, elles sont toujours là ! ✅
 
 ---
 
-## 🗑️ Étape 4 : Supprimer les volumes (réinitialisation complète)
+## Étape 4 : Supprimer les volumes (réinitialisation complète)
 
 Pour repartir de zéro (base vierge), il faut supprimer le volume.
 
@@ -166,7 +166,7 @@ DRIVER    VOLUME NAME
 
 ---
 
-## 🆕 Étape 5 : Redémarrer avec une base vierge
+## Étape 5 : Redémarrer avec une base vierge
 
 Après avoir supprimé le volume, un nouveau démarrage recréera tout.
 
@@ -195,7 +195,7 @@ DATABASE IS READY TO USE!
 
 ---
 
-## 🧹 Étape 6 : Nettoyer les images Docker inutilisées
+## Étape 6 : Nettoyer les images Docker inutilisées
 
 Au fil du temps, Docker accumule des images (anciennes versions, etc.).
 
@@ -235,7 +235,7 @@ Are you sure you want to continue? [y/N] y
 
 ---
 
-## 🧼 Étape 7 : Nettoyage complet de Docker
+## Étape 7 : Nettoyage complet de Docker
 
 Pour récupérer un maximum d'espace disque :
 
@@ -290,7 +290,7 @@ Local Volumes   1         1         1.5GB     0B (0%)
 
 ---
 
-## 🔍 Étape 8 : Vérifier les ressources Docker Desktop
+## Étape 8 : Vérifier les ressources Docker Desktop
 
 ### Interface graphique
 
@@ -319,7 +319,7 @@ Appuyez sur `Ctrl + C` pour quitter.
 
 ---
 
-## 📋 Récapitulatif des commandes
+## Récapitulatif des commandes
 
 | Commande | Action | Données conservées ? |
 |----------|--------|----------------------|
@@ -332,7 +332,7 @@ Appuyez sur `Ctrl + C` pour quitter.
 
 ---
 
-## 🔄 Étape 9 : Scénarios d'utilisation
+## Étape 9 : Scénarios d'utilisation
 
 ### Scénario 1 : Pause de travail (garder les données)
 
@@ -444,7 +444,7 @@ docker system prune -a --volumes
 
 ---
 
-## ✅ Checklist de validation
+## Checklist de validation
 
 Après ce lab, vous savez :
 
@@ -458,7 +458,7 @@ Après ce lab, vous savez :
 
 ---
 
-## 🎓 Ce que vous avez appris
+## Ce que vous avez appris
 
 - ✅ Gestion du cycle de vie des conteneurs Docker
 - ✅ Persistance des données avec les volumes
@@ -469,7 +469,7 @@ Après ce lab, vous savez :
 
 ---
 
-## 🎉 Félicitations !
+## Félicitations !
 
 Vous avez terminé tous les labs du guide !
 
@@ -484,7 +484,7 @@ Vous avez terminé tous les labs du guide !
 
 ---
 
-## 🔜 Pour aller plus loin
+## Pour aller plus loin
 
 ### Prochaines étapes suggérées :
 

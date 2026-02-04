@@ -1,10 +1,10 @@
-# 🏗️ Architecture de l'environnement
+# Architecture de l'environnement
 
 Ce document explique comment les différents composants de votre environnement interagissent.
 
 ---
 
-## 📊 Vue d'ensemble
+## Vue d'ensemble
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -49,9 +49,9 @@ Ce document explique comment les différents composants de votre environnement i
 
 ---
 
-## 🧩 Composants détaillés
+## Composants détaillés
 
-### 1. 🖥️ Machine hôte (votre ordinateur)
+### 1. Machine hôte (votre ordinateur)
 
 C'est votre système d'exploitation principal (Windows, macOS ou Linux).
 
@@ -62,7 +62,7 @@ C'est votre système d'exploitation principal (Windows, macOS ou Linux).
 
 ---
 
-### 2. 🐳 Docker Engine
+### 2. Docker Engine
 
 Moteur de conteneurisation fourni par Docker Desktop.
 
@@ -82,7 +82,7 @@ docker compose logs       # Voir les logs
 
 ---
 
-### 3. 📦 Conteneur Docker : `oracle-db`
+### 3. Conteneur Docker : `oracle-db`
 
 Instance isolée exécutant Oracle Database.
 
@@ -100,7 +100,7 @@ Instance isolée exécutant Oracle Database.
 
 ---
 
-### 4. 🗄️ Oracle Database 23c Free
+### 4. Oracle Database 23c Free
 
 Base de données relationnelle Oracle.
 
@@ -125,7 +125,7 @@ Oracle 23c utilise une architecture **multi-tenant** :
 
 ---
 
-### 5. 💾 Volume Docker : `oracle-data`
+### 5. Volume Docker : `oracle-data`
 
 Système de stockage persistant géré par Docker.
 
@@ -143,7 +143,7 @@ Système de stockage persistant géré par Docker.
 
 ---
 
-## 🔌 Flux de connexion SQL
+## Flux de connexion SQL
 
 Voici ce qui se passe quand vous vous connectez depuis SQL Developer :
 
@@ -175,7 +175,7 @@ Voici ce qui se passe quand vous vous connectez depuis SQL Developer :
 
 ---
 
-## 🔄 Cycle de vie du conteneur
+## Cycle de vie du conteneur
 
 ### Démarrage (premier lancement)
 
@@ -230,7 +230,7 @@ Voici ce qui se passe quand vous vous connectez depuis SQL Developer :
 
 ---
 
-## 📡 Ports réseau
+## Ports réseau
 
 | Port | Protocole | Usage | Obligatoire |
 |------|-----------|-------|-------------|
@@ -243,7 +243,7 @@ Voici ce qui se passe quand vous vous connectez depuis SQL Developer :
 
 ---
 
-## 🔐 Variables d'environnement
+## Variables d'environnement
 
 Définies dans `docker-compose.yml` :
 
@@ -257,7 +257,7 @@ Définies dans `docker-compose.yml` :
 
 ---
 
-## 🛡️ Isolation et sécurité
+## Isolation et sécurité
 
 ### Isolation réseau
 
@@ -279,7 +279,7 @@ Définies dans `docker-compose.yml` :
 
 ---
 
-## 📦 Comparaison : Installation traditionnelle vs Docker
+## Comparaison : Installation traditionnelle vs Docker
 
 | Critère | Installation native | Avec Docker |
 |---------|---------------------|-------------|
@@ -293,7 +293,7 @@ Définies dans `docker-compose.yml` :
 
 ---
 
-## 🎓 Pourquoi cette architecture ?
+## Pourquoi cette architecture ?
 
 ### Avantages pédagogiques
 
@@ -311,7 +311,7 @@ Définies dans `docker-compose.yml` :
 
 ---
 
-## 🔍 Vérifier l'architecture
+## Vérifier l'architecture
 
 Une fois l'environnement démarré (Lab 03), vous pourrez vérifier :
 

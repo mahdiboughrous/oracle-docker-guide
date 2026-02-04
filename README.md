@@ -1,10 +1,10 @@
-# 🎓 Guide pratique : Oracle Database 23c avec Docker Compose
+# Guide pratique : Oracle Database 23c avec Docker Compose
 
 > Guide pédagogique complet pour apprendre à déployer et utiliser Oracle Database 23c Free avec Docker
 
 ---
 
-## 📖 À propos de ce guide
+## À propos de ce guide
 
 Ce guide pratique (hands-on) vous accompagne pas à pas dans la mise en place d'une base de données Oracle Database 23c Free à l'aide de Docker Compose, puis dans son utilisation avec un client SQL.
 
@@ -14,21 +14,21 @@ Ce guide pratique (hands-on) vous accompagne pas à pas dans la mise en place d'
 
 ---
 
-## 🎯 Ce que vous allez apprendre
+## Ce que vous allez apprendre
 
 À l'issue de ce guide, vous serez capable de :
 
-- ✅ Configurer un environnement Oracle Database avec Docker Compose
-- ✅ Démarrer et arrêter une instance Oracle de manière reproductible
-- ✅ Vous connecter à Oracle avec un client SQL (SQL Developer)
-- ✅ Exécuter des requêtes SQL de base
-- ✅ Créer des utilisateurs, des schémas et des tables
-- ✅ Gérer la persistance des données avec Docker
-- ✅ Diagnostiquer les erreurs courantes
+- Configurer un environnement Oracle Database avec Docker Compose
+- Démarrer et arrêter une instance Oracle de manière reproductible
+- Vous connecter à Oracle avec un client SQL (SQL Developer)
+- Exécuter des requêtes SQL de base
+- Créer des utilisateurs, des schémas et des tables
+- Gérer la persistance des données avec Docker
+- Diagnostiquer les erreurs courantes
 
 ---
 
-## 📋 Prérequis
+## Prérequis
 
 Avant de commencer, assurez-vous d'avoir :
 
@@ -42,7 +42,7 @@ Avant de commencer, assurez-vous d'avoir :
 
 ---
 
-## 📂 Comment utiliser ce dépôt
+## Comment utiliser ce dépôt
 
 ### Option 1 : Télécharger en ZIP (recommandé pour débutants)
 
@@ -60,7 +60,7 @@ cd oracle-docker-guide
 
 ---
 
-## 🗺️ Structure du guide
+## Structure du guide
 
 Le guide est organisé en **labs progressifs** :
 
@@ -76,7 +76,7 @@ Le guide est organisé en **labs progressifs** :
 
 ---
 
-## 🚀 Démarrage rapide
+## Démarrage rapide
 
 **Pour commencer immédiatement :**
 
@@ -87,7 +87,7 @@ Le guide est organisé en **labs progressifs** :
 
 ---
 
-## 📚 Ressources complémentaires
+## Ressources complémentaires
 
 - **[Architecture](architecture.md)** : Schéma explicatif de l'infrastructure
 - **[Troubleshooting](troubleshooting.md)** : Solutions aux problèmes courants
@@ -95,7 +95,7 @@ Le guide est organisé en **labs progressifs** :
 
 ---
 
-## 🛠️ Technologies utilisées
+## Technologies utilisées
 
 - **Oracle Database Free 23c** : Base de données relationnelle
 - **Docker** : Conteneurisation
@@ -104,7 +104,7 @@ Le guide est organisé en **labs progressifs** :
 
 ---
 
-## 💡 Philosophie pédagogique
+## Philosophie pédagogique
 
 Ce guide privilégie :
 
@@ -115,7 +115,7 @@ Ce guide privilégie :
 
 ---
 
-## ⚠️ Notes importantes
+## Notes importantes
 
 - Les **mots de passe** utilisés dans ce guide sont **à usage pédagogique uniquement**
 - En environnement de production, utilisez des mots de passe sécurisés
@@ -123,13 +123,13 @@ Ce guide privilégie :
 
 ---
 
-## 📄 Licence
+## Licence
 
 Ce guide est fourni à des fins pédagogiques.
 
 ---
 
-## 🤝 Contribution
+## Contribution
 
 Vous avez trouvé une erreur ou souhaitez améliorer le guide ?  
 N'hésitez pas à ouvrir une issue ou proposer une pull request.

@@ -5,25 +5,25 @@
 
 ---
 
-## 🎯 Objectifs
+## Objectifs
 
 À la fin de ce lab, vous aurez :
 
-- ✅ Vérifié que Docker Desktop est installé et fonctionne
-- ✅ Testé la commande `docker`
-- ✅ Testé la commande `docker compose`
-- ✅ Compris la différence entre `docker` et `docker compose`
+- Vérifié que Docker Desktop est installé et fonctionne
+- Testé la commande `docker`
+- Testé la commande `docker compose`
+- Compris la différence entre `docker` et `docker compose`
 
 ---
 
-## 📋 Prérequis
+## Prérequis
 
 - Docker Desktop installé (voir [prerequisites.md](../prerequisites.md))
 - Docker Desktop en cours d'exécution
 
 ---
 
-## 🚀 Étape 1 : Vérifier que Docker Desktop est lancé
+## Étape 1 : Vérifier que Docker Desktop est lancé
 
 ### Windows
 
@@ -58,7 +58,7 @@ sudo systemctl status docker
 
 ---
 
-## 🧪 Étape 2 : Tester la commande `docker`
+## Étape 2 : Tester la commande `docker`
 
 Ouvrez un terminal :
 
@@ -105,7 +105,7 @@ Server:
 
 ---
 
-## 🎼 Étape 3 : Tester Docker Compose
+## Étape 3 : Tester Docker Compose
 
 ### Test 1 : Vérifier la version de Compose
 
@@ -149,7 +149,7 @@ Commands:
 
 ---
 
-## 🧪 Étape 4 : Test rapide avec un conteneur simple
+## Étape 4 : Test rapide avec un conteneur simple
 
 Testons Docker avec un conteneur de test officiel.
 
@@ -196,7 +196,7 @@ To generate this message, Docker took the following steps:
 
 ---
 
-## 🔍 Étape 5 : Vérifier les images et conteneurs
+## Étape 5 : Vérifier les images et conteneurs
 
 ### Lister les images téléchargées
 
@@ -226,7 +226,7 @@ abc123def456   hello-world   "/hello"   2 minutes ago    Exited (0) 2 minutes ag
 
 ---
 
-## 🧹 Étape 6 : Nettoyer le conteneur de test
+## Étape 6 : Nettoyer le conteneur de test
 
 Pour éviter d'accumuler des conteneurs inutilisés :
 

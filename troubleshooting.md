@@ -1,10 +1,10 @@
-# 🔧 Dépannage et résolution de problèmes
+# Dépannage et résolution de problèmes
 
 Ce document recense les erreurs courantes et leurs solutions.
 
 ---
 
-## 🗂️ Catégories
+## Catégories
 
 - [Docker et installation](#docker-et-installation)
 - [Démarrage d'Oracle](#démarrage-doracle)
@@ -15,9 +15,9 @@ Ce document recense les erreurs courantes et leurs solutions.
 
 ---
 
-## 🐳 Docker et installation
+## Docker et installation
 
-### ❌ "docker: command not found"
+### "docker: command not found"
 
 **Symptôme** :
 ```bash
@@ -54,7 +54,7 @@ bash: docker: command not found
 
 ---
 
-### ❌ "Cannot connect to the Docker daemon"
+### "Cannot connect to the Docker daemon"
 
 **Symptôme** :
 ```
@@ -75,7 +75,7 @@ Is the docker daemon running?
 
 ---
 
-### ❌ "permission denied" (Linux)
+### "permission denied" (Linux)
 
 **Symptôme** :
 ```
@@ -93,7 +93,7 @@ newgrp docker
 
 ---
 
-### ❌ Docker très lent sur Windows
+### Docker très lent sur Windows
 
 **Symptôme** : Démarrage/arrêt extrêmement lent, machine qui rame.
 
@@ -120,9 +120,9 @@ newgrp docker
 
 ---
 
-## 🚀 Démarrage d'Oracle
+## Démarrage d'Oracle
 
-### ❌ "pull access denied" ou "unauthorized"
+### "pull access denied" ou "unauthorized"
 
 **Symptôme** :
 ```

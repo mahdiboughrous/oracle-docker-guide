@@ -5,27 +5,27 @@
 
 ---
 
-## 🎯 Objectifs
+## Objectifs
 
 À la fin de ce lab, vous serez capable de :
 
-- ✅ Créer un utilisateur et un schéma
-- ✅ Créer des tables avec différents types de données
-- ✅ Insérer des données
-- ✅ Exécuter des requêtes SELECT (filtres, jointures)
-- ✅ Mettre à jour et supprimer des données
-- ✅ Utiliser des scripts SQL automatisés
+- Créer un utilisateur et un schéma
+- Créer des tables avec différents types de données
+- Insérer des données
+- Exécuter des requêtes SELECT (filtres, jointures)
+- Mettre à jour et supprimer des données
+- Utiliser des scripts SQL automatisés
 
 ---
 
-## 📋 Prérequis
+## Prérequis
 
 - SQL Developer installé et connecté (Lab 04)
 - Connexion active à `FREEPDB1` avec l'utilisateur `SYSTEM`
 
 ---
 
-## 🔐 Étape 1 : Créer un utilisateur dédié
+## Étape 1 : Créer un utilisateur dédié
 
 Par bonnes pratiques, évitons de travailler directement avec `SYSTEM`.
 
@@ -83,7 +83,7 @@ User ETUDIANT altered.
 
 ---
 
-## 📊 Étape 2 : Créer un schéma de base de données
+## Étape 2 : Créer un schéma de base de données
 
 Nous allons créer un schéma simple pour gérer des **étudiants** et des **cours**.
 
@@ -168,7 +168,7 @@ CREATE TABLE inscriptions (
 
 ---
 
-## 📝 Étape 3 : Insérer des données
+## Étape 3 : Insérer des données
 
 ### 3.1 Insérer des étudiants
 
@@ -253,7 +253,7 @@ COMMIT;
 
 ---
 
-## 🔍 Étape 4 : Interroger les données (SELECT)
+## Étape 4 : Interroger les données (SELECT)
 
 ### 4.1 Sélectionner tous les étudiants
 
@@ -305,7 +305,7 @@ NOMBRE_ETUDIANTS
 
 ---
 
-## 🔗 Étape 5 : Jointures (JOIN)
+## Étape 5 : Jointures (JOIN)
 
 ### 5.1 Afficher les inscriptions avec noms
 
@@ -381,7 +381,7 @@ ORDER BY moyenne_generale DESC NULLS LAST;
 
 ---
 
-## ✏️ Étape 6 : Modifier des données (UPDATE)
+## Étape 6 : Modifier des données (UPDATE)
 
 ### 6.1 Mettre à jour une note
 
@@ -416,7 +416,7 @@ COMMIT;
 
 ---
 
-## 🗑️ Étape 7 : Supprimer des données (DELETE)
+## Étape 7 : Supprimer des données (DELETE)
 
 ### 7.1 Supprimer une inscription
 

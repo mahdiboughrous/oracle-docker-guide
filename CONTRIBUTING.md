@@ -1,10 +1,10 @@
-# 🤝 Guide de contribution
+# Guide de contribution
 
 Merci de votre intérêt pour améliorer ce guide pédagogique !
 
 ---
 
-## 🎯 Types de contributions acceptées
+## Types de contributions acceptées
 
 - ✅ Correction de fautes (orthographe, grammaire)
 - ✅ Amélioration des explications
@@ -16,7 +16,7 @@ Merci de votre intérêt pour améliorer ce guide pédagogique !
 
 ---
 
-## 📝 Règles de style
+## Règles de style
 
 ### Markdown
 
@@ -51,7 +51,7 @@ Chaque lab doit contenir :
 
 ---
 
-## 🔄 Processus de contribution
+## Processus de contribution
 
 ### 1. Fork et clone
 
@@ -120,7 +120,7 @@ Puis ouvrez une Pull Request sur GitHub avec :
 
 ---
 
-## 🧪 Checklist avant Pull Request
+## Checklist avant Pull Request
 
 - [ ] Les modifications sont testées localement
 - [ ] Aucune erreur de syntaxe Markdown
@@ -132,7 +132,7 @@ Puis ouvrez une Pull Request sur GitHub avec :
 
 ---
 
-## 🚫 Ce qui n'est PAS accepté
+## Ce qui n'est PAS accepté
 
 - ❌ Modifications de fond sans discussion préalable
 - ❌ Changement de philosophie pédagogique (tutoiement → vouvoiement)
@@ -142,13 +142,13 @@ Puis ouvrez une Pull Request sur GitHub avec :
 
 ---
 
-## 📄 Licence
+## Licence
 
 En contribuant, vous acceptez que vos modifications soient publiées sous la même licence que le projet original.
 
 ---
 
-## 💬 Questions ?
+## Questions ?
 
 - Ouvrez une **Issue** sur GitHub pour discuter avant de contribuer
 - Décrivez clairement le problème ou l'amélioration envisagée

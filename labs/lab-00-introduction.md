@@ -5,18 +5,18 @@
 
 ---
 
-## 🎯 Objectifs
+## Objectifs
 
 À la fin de ce lab, vous serez capable de :
 
-- ✅ Comprendre ce qu'est Docker et pourquoi on l'utilise
-- ✅ Distinguer une image d'un conteneur
-- ✅ Comprendre le rôle de Docker Compose
-- ✅ Comprendre l'architecture multi-tenant d'Oracle (CDB/PDB)
+- Comprendre ce qu'est Docker et pourquoi on l'utilise
+- Distinguer une image d'un conteneur
+- Comprendre le rôle de Docker Compose
+- Comprendre l'architecture multi-tenant d'Oracle (CDB/PDB)
 
 ---
 
-## 📚 1. Qu'est-ce que Docker ?
+## 1. Qu'est-ce que Docker ?
 
 ### Définition simple
 
@@ -52,7 +52,7 @@ Imaginez Docker comme un conteneur maritime :
 
 ---
 
-## 🖼️ 2. Image vs Conteneur
+## 2. Image vs Conteneur
 
 ### Image Docker
 
@@ -98,7 +98,7 @@ Image (plan)                  Conteneur (instance)
 
 ---
 
-## 🎼 3. Qu'est-ce que Docker Compose ?
+## 3. Qu'est-ce que Docker Compose ?
 
 ### Définition
 
@@ -148,7 +148,7 @@ docker compose up -d
 
 ---
 
-## 🗄️ 4. Architecture Oracle : CDB et PDB
+## 4. Architecture Oracle : CDB et PDB
 
 Oracle 23c utilise une architecture **multi-tenant** (multi-locataire).
 
@@ -194,7 +194,7 @@ Oracle 23c utilise une architecture **multi-tenant** (multi-locataire).
 
 ---
 
-## 🔌 5. Connexion à Oracle : les paramètres
+## 5. Connexion à Oracle : les paramètres
 
 Lorsque vous vous connecterez avec SQL Developer (Lab 04), vous utiliserez :
 
@@ -220,7 +220,7 @@ Lorsque vous vous connecterez avec SQL Developer (Lab 04), vous utiliserez :
 
 ---
 
-## 🔍 6. Volumes Docker : persistance des données
+## 6. Volumes Docker : persistance des données
 
 ### Problème sans volume
 
@@ -262,7 +262,7 @@ Un **volume Docker** est un espace de stockage persistant géré par Docker.
 
 ---
 
-## 🚀 7. Récapitulatif : le flux complet
+## 7. Récapitulatif : le flux complet
 
 Voici ce qui se passera dans les prochains labs :
 
@@ -298,7 +298,7 @@ Lab 06 : Nettoyer / Réinitialiser
 
 ---
 
-## 📝 8. Questions de compréhension
+## 8. Questions de compréhension
 
 Avant de passer au lab suivant, assurez-vous de pouvoir répondre à :
 
@@ -334,7 +334,7 @@ Avant de passer au lab suivant, assurez-vous de pouvoir répondre à :
 
 ---
 
-## ✅ Checklist avant de continuer
+## Checklist avant de continuer
 
 - [ ] Je comprends ce qu'est Docker
 - [ ] Je sais distinguer image et conteneur
@@ -344,7 +344,7 @@ Avant de passer au lab suivant, assurez-vous de pouvoir répondre à :
 
 ---
 
-## 🔜 Prochaine étape
+## Prochaine étape
 
 **👉 [Lab 01 : Vérifier votre installation Docker](lab-01-docker-setup.md)**
 

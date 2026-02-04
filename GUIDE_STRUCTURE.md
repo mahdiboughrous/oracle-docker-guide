@@ -1,10 +1,10 @@
-# 📋 Structure du guide pédagogique Oracle Database 23c
+# Structure du guide pédagogique Oracle Database 23c
 
 Ce document récapitule l'organisation complète du guide.
 
 ---
 
-## 📂 Structure des fichiers
+## Structure des fichiers
 
 ```
 tp-oracle/
@@ -40,7 +40,7 @@ tp-oracle/
 
 ---
 
-## 🎯 Parcours pédagogique
+## Parcours pédagogique
 
 ### Étape 1 : Préparation (15-30 min)
 1. [README.md](README.md) - Présentation du guide
@@ -66,7 +66,7 @@ tp-oracle/
 
 ---
 
-## 🎓 Utilisation pédagogique
+## Utilisation pédagogique
 
 ### En cours magistral
 - Présenter [architecture.md](architecture.md) avec un projecteur

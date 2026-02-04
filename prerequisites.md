@@ -1,10 +1,10 @@
-# 📋 Prérequis techniques
+# Prérequis techniques
 
 Ce document détaille les prérequis nécessaires pour suivre ce guide pratique.
 
 ---
 
-## 🖥️ Configuration matérielle minimale
+## Configuration matérielle minimale
 
 | Ressource | Minimum | Recommandé |
 |-----------|---------|------------|
@@ -17,7 +17,7 @@ Ce document détaille les prérequis nécessaires pour suivre ce guide pratique.
 
 ---
 
-## 🐳 Docker Desktop
+## Docker Desktop
 
 Docker Desktop est **obligatoire** pour ce guide.
 
@@ -78,7 +78,7 @@ newgrp docker
 
 ---
 
-## ✅ Vérifier l'installation de Docker
+## Vérifier l'installation de Docker
 
 Ouvrez un terminal et exécutez :
 
@@ -106,7 +106,7 @@ Docker Compose version v2.x.x
 
 ---
 
-## 🛠️ Client SQL : Oracle SQL Developer
+## Client SQL : Oracle SQL Developer
 
 Oracle SQL Developer est le client graphique recommandé pour se connecter à Oracle Database.
 
@@ -145,7 +145,7 @@ Si vous préférez un client multi-bases de données :
 
 ---
 
-## 🌐 Connexion Internet
+## Connexion Internet
 
 Une connexion Internet est nécessaire pour :
 
@@ -156,7 +156,7 @@ Une connexion Internet est nécessaire pour :
 
 ---
 
-## 📝 Éditeur de texte
+## Éditeur de texte
 
 Vous aurez besoin d'un éditeur pour consulter/modifier les fichiers SQL et YAML.
 
@@ -172,7 +172,7 @@ Vous aurez besoin d'un éditeur pour consulter/modifier les fichiers SQL et YAML
 
 ---
 
-## 🧪 Connaissances de base requises
+## Connaissances de base requises
 
 ### Terminal / Ligne de commande
 
@@ -195,7 +195,7 @@ Pas besoin d'être expert, mais il est utile de connaître :
 
 ---
 
-## 🔍 Tester votre environnement (optionnel)
+## Tester votre environnement (optionnel)
 
 Avant de commencer les labs, testez Docker avec cette commande simple :
 
@@ -214,7 +214,7 @@ Si cette commande fonctionne, vous êtes prêt à continuer.
 
 ---
 
-## ❌ Que faire si quelque chose ne fonctionne pas ?
+## Que faire si quelque chose ne fonctionne pas ?
 
 - **Docker ne démarre pas** : vérifiez les paramètres de virtualisation dans le BIOS
 - **Erreur WSL2 (Windows)** : installez la mise à jour WSL2 kernel depuis [aka.ms/wsl2kernel](https://aka.ms/wsl2kernel)
@@ -225,7 +225,7 @@ Si cette commande fonctionne, vous êtes prêt à continuer.
 
 ---
 
-## ✅ Checklist finale
+## Checklist finale
 
 Avant de passer au Lab 00, vérifiez :
 

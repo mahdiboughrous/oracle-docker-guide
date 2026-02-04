@@ -5,19 +5,19 @@
 
 ---
 
-## 🎯 Objectifs
+## Objectifs
 
 À la fin de ce lab, vous aurez :
 
-- ✅ Démarré votre première instance Oracle avec Docker Compose
-- ✅ Compris les logs de démarrage
-- ✅ Vérifié que la base de données est prête
-- ✅ Testé la connexion basique
-- ✅ Appris à arrêter et redémarrer Oracle proprement
+- Démarré votre première instance Oracle avec Docker Compose
+- Compris les logs de démarrage
+- Vérifié que la base de données est prête
+- Testé la connexion basique
+- Appris à arrêter et redémarrer Oracle proprement
 
 ---
 
-## 📋 Prérequis
+## Prérequis
 
 - Docker Desktop lancé et fonctionnel
 - Fichier `docker-compose.yml` configuré (Lab 02)
@@ -25,7 +25,7 @@
 
 ---
 
-## 🚀 Étape 1 : Se placer dans le bon dossier
+## Étape 1 : Se placer dans le bon dossier
 
 Ouvrez un terminal et naviguez vers le dossier `docker` :
 
@@ -52,7 +52,7 @@ docker-compose.yml
 
 ---
 
-## 🐳 Étape 2 : Démarrer Oracle (premier lancement)
+## Étape 2 : Démarrer Oracle (premier lancement)
 
 ### Commande
 
@@ -97,7 +97,7 @@ docker compose up -d
 
 ---
 
-## 📊 Étape 3 : Suivre les logs de démarrage
+## Étape 3 : Suivre les logs de démarrage
 
 Pour voir ce qui se passe en temps réel :
 
@@ -144,7 +144,7 @@ oracle-db  | DATABASE IS READY TO USE!
 
 ---
 
-## ✅ Étape 4 : Vérifier l'état du conteneur
+## Étape 4 : Vérifier l'état du conteneur
 
 ### Commande
 
@@ -169,7 +169,7 @@ oracle-db   gvenzl/oracle-free:23.4-slim     Up 5 minutes  0.0.0.0:1521->1521/tc
 
 ---
 
-## 🩺 Étape 5 : Vérifier le health check
+## Étape 5 : Vérifier le health check
 
 Docker peut vous indiquer si Oracle est vraiment prêt.
 
@@ -193,7 +193,7 @@ abc123def456   gvenzl/oracle-free:23.4-slim     Up 8 minutes (healthy)    0.0.0.
 
 ---
 
-## 🔍 Étape 6 : Inspecter les détails du conteneur
+## Étape 6 : Inspecter les détails du conteneur
 
 Pour voir tous les détails techniques :
 
@@ -224,7 +224,7 @@ docker inspect oracle-db
 
 ---
 
-## 🧪 Étape 7 : Tester la connexion (test rapide)
+## Étape 7 : Tester la connexion (test rapide)
 
 Testons la connectivité réseau au port 1521.
 
@@ -254,7 +254,7 @@ Connection to localhost port 1521 [tcp/*] succeeded!
 
 ---
 
-## 🛠️ Étape 8 : Se connecter à Oracle (test SQL)
+## Étape 8 : Se connecter à Oracle (test SQL)
 
 Nous allons nous connecter directement depuis le conteneur pour tester.
 
@@ -307,7 +307,7 @@ EXIT;
 
 ---
 
-## 🔄 Étape 9 : Arrêter Oracle proprement
+## Étape 9 : Arrêter Oracle proprement
 
 Pour arrêter Oracle de manière propre :
 

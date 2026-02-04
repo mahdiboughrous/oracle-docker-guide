@@ -5,25 +5,25 @@
 
 ---
 
-## 🎯 Objectifs
+## Objectifs
 
 À la fin de ce lab, vous serez capable de :
 
-- ✅ Comprendre la structure d'un fichier `docker-compose.yml`
-- ✅ Identifier les paramètres importants pour Oracle
-- ✅ Modifier les mots de passe et ports si nécessaire
-- ✅ Comprendre le rôle des volumes
+- Comprendre la structure d'un fichier `docker-compose.yml`
+- Identifier les paramètres importants pour Oracle
+- Modifier les mots de passe et ports si nécessaire
+- Comprendre le rôle des volumes
 
 ---
 
-## 📂 Prérequis
+## Prérequis
 
 - Docker Desktop installé et fonctionnel (Lab 01)
 - Le dossier du projet téléchargé ou cloné
 
 ---
 
-## 📁 Étape 1 : Naviguer vers le dossier du projet
+## Étape 1 : Naviguer vers le dossier du projet
 
 Ouvrez un terminal et placez-vous dans le dossier du projet :
 
@@ -50,7 +50,7 @@ docker-compose.yml
 
 ---
 
-## 📄 Étape 2 : Examiner le fichier `docker-compose.yml`
+## Étape 2 : Examiner le fichier `docker-compose.yml`
 
 Ouvrez le fichier `docker/docker-compose.yml` avec votre éditeur de texte préféré.
 
@@ -99,7 +99,7 @@ networks:
 
 ---
 
-## 🔍 Étape 3 : Comprendre chaque section
+## Étape 3 : Comprendre chaque section
 
 ### Section 1 : Métadonnées
 
@@ -361,7 +361,7 @@ networks:
 
 ---
 
-## 📝 Étape 4 : Modifier le fichier (optionnel)
+## Étape 4 : Modifier le fichier (optionnel)
 
 Si vous souhaitez personnaliser la configuration :
 
@@ -392,7 +392,7 @@ Si vous souhaitez personnaliser la configuration :
 
 ---
 
-## ✅ Étape 5 : Valider la syntaxe YAML
+## Étape 5 : Valider la syntaxe YAML
 
 Docker Compose peut vérifier la syntaxe sans démarrer les conteneurs.
 
@@ -415,7 +415,7 @@ ERROR: yaml.scanner.ScannerError: ...
 
 ---
 
-## 🧪 Étape 6 : Comprendre le flux de démarrage
+## Étape 6 : Comprendre le flux de démarrage
 
 Lorsque vous exécuterez `docker compose up` (Lab 03), voici ce qui se passera :
 
@@ -450,7 +450,7 @@ Lorsque vous exécuterez `docker compose up` (Lab 03), voici ce qui se passera :
 
 ---
 
-## 📊 Récapitulatif des paramètres clés
+## Récapitulatif des paramètres clés
 
 | Paramètre | Valeur par défaut | À modifier ? |
 |-----------|-------------------|--------------|
@@ -464,7 +464,7 @@ Lorsque vous exécuterez `docker compose up` (Lab 03), voici ce qui se passera :
 
 ---
 
-## ✅ Checklist de validation
+## Checklist de validation
 
 Avant de passer au lab suivant, vérifiez :
 
@@ -476,7 +476,7 @@ Avant de passer au lab suivant, vérifiez :
 
 ---
 
-## 🎓 Ce que vous avez appris
+## Ce que vous avez appris
 
 - ✅ Structure d'un fichier `docker-compose.yml`
 - ✅ Différence entre ports hôte et conteneur
