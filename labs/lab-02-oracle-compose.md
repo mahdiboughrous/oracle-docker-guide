@@ -490,7 +490,7 @@ Avant de passer au lab suivant, vérifiez :
 
 Le fichier de configuration est prêt !
 
-**👉 [Lab 03 : Démarrer Oracle Database](lab-03-running-oracle.md)**
+** [Lab 03 : Démarrer Oracle Database](lab-03-running-oracle.md)**
 
 ---
 

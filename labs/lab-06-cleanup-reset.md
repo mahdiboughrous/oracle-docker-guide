@@ -64,6 +64,10 @@ NAME   IMAGE   COMMAND   SERVICE   CREATED   STATUS   PORTS
 
 Même après `docker compose down`, les données sont conservées dans le volume.
 
+>  **Concept clé à comprendre**  
+> Le volume Docker joue un rôle critique dans ce TP.  
+> Observez attentivement ce qui se passe avec et sans le volume.
+
 ### Lister les volumes
 
 ```bash
@@ -148,6 +152,11 @@ docker compose down -v
  ✔ Network docker_oracle-network  Removed
  ✔ Volume docker_oracle-data      Removed
 ```
+
+> ⚠️ **Conséquence importante**  
+> Notez bien la ligne `Volume docker_oracle-data Removed`.  
+> Que signifie cette suppression pour vos données ?  
+> Comparez avec un simple `docker compose down` (sans `-v`).
 
 ### Vérifier la suppression
 

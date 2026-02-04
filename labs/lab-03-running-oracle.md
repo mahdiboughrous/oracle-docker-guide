@@ -95,6 +95,11 @@ docker compose up -d
 
 > 💡 **Note** : Au premier lancement, Oracle doit créer la base de données (CDB + PDB). Cela prend **5 à 10 minutes**.
 
+>  **Prenez un moment pour observer**  
+> - Le temps nécessaire au premier démarrage sur votre machine  
+> - Les différentes étapes affichées pendant la création de la base  
+> - Notez l'heure de début et de fin du processus
+
 ---
 
 ## Étape 3 : Suivre les logs de démarrage
@@ -138,9 +143,22 @@ oracle-db  | DATABASE IS READY TO USE!
 | `creating pluggable database` | Création de la PDB (FREEPDB1) |
 | `DATABASE IS READY TO USE!` | ✅ Oracle est prêt ! |
 
+> 💡 **À retenir**  
+> Le message exact indiquant que la base est opérationnelle est important.  
+> Observez attentivement les logs : certains messages confirment que la base est prête à accepter des connexions.
+
 **Pour quitter le suivi des logs** : `Ctrl + C`
 
 > ⚠️ **Important** : `Ctrl + C` quitte seulement le suivi des logs, le conteneur continue de tourner.
+
+>  **Expérience à tester**  
+> Après ce premier démarrage, essayez d'arrêter puis de redémarrer le conteneur :  
+> ```bash
+> docker compose down
+> docker compose up -d
+> docker compose logs -f
+> ```  
+> Observez la différence de temps. Pourquoi le deuxième démarrage est-il plus rapide ?
 
 ---
 
@@ -457,7 +475,7 @@ Avant de passer au lab suivant, vérifiez :
 
 Oracle est prêt ! Passons maintenant à un client SQL graphique.
 
-**👉 [Lab 04 : Installer et configurer SQL Developer](lab-04-sql-client.md)**
+** [Lab 04 : Installer et configurer SQL Developer](lab-04-sql-client.md)**
 
 ---
 

@@ -94,6 +94,11 @@ Nous allons créer un schéma simple pour gérer des **étudiants** et des **cou
 
 ### 2.2 Créer la table `ETUDIANTS`
 
+>  **À observer pendant cette manipulation**  
+> Vous allez créer des objets (tables, données) dans Oracle.  
+> Après leur création, ces données seront stockées quelque part.  
+> Gardez en tête la notion de persistance vue précédemment.
+
 ```sql
 -- Table des étudiants
 CREATE TABLE etudiants (
@@ -539,7 +544,7 @@ Avant de passer au lab suivant, vérifiez :
 
 Vous maîtrisez les bases du SQL !
 
-**👉 [Lab 06 : Nettoyer et réinitialiser l'environnement](lab-06-cleanup-reset.md)**
+** [Lab 06 : Nettoyer et réinitialiser l'environnement](lab-06-cleanup-reset.md)**
 
 ---
 

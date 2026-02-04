@@ -337,4 +337,4 @@ docker volume ls
 
 ---
 
-**👉 Prêt à comprendre l'architecture en pratique ? Direction [Lab 00 : Introduction](labs/lab-00-introduction.md) !**
+** Prêt à comprendre l'architecture en pratique ? Direction [Lab 00 : Introduction](labs/lab-00-introduction.md) !**

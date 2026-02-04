@@ -103,6 +103,11 @@ Server:
 
 ✅ Si cette commande fonctionne, Docker est correctement installé.
 
+>  **À noter pour la suite**  
+> Dans Docker Desktop, vérifiez les paramètres de ressources allouées (Settings > Resources).  
+> Oracle nécessite une configuration mémoire spécifique pour fonctionner correctement.  
+> Observez la quantité de RAM actuellement allouée à Docker sur votre système.
+
 ---
 
 ## Étape 3 : Tester Docker Compose
@@ -336,7 +341,7 @@ Avant de passer au lab suivant, vérifiez :
 
 Votre environnement Docker est prêt !
 
-**👉 [Lab 02 : Configurer Docker Compose pour Oracle](lab-02-oracle-compose.md)**
+** [Lab 02 : Configurer Docker Compose pour Oracle](lab-02-oracle-compose.md)**
 
 ---
 

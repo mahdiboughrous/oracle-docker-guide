@@ -543,4 +543,4 @@ Avant de chercher de l'aide :
 
 ---
 
-**👉 Retour au [README.md](README.md)**
+** Retour au [README.md](README.md)**

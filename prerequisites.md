@@ -221,7 +221,7 @@ Si cette commande fonctionne, vous êtes prêt à continuer.
 - **Pas assez de RAM** : fermez les applications gourmandes (navigateurs, IDE)
 - **Problème de connexion** : vérifiez votre pare-feu et proxy
 
-👉 Consultez [troubleshooting.md](troubleshooting.md) pour plus de détails.
+ Consultez [troubleshooting.md](troubleshooting.md) pour plus de détails.
 
 ---
 
@@ -239,4 +239,4 @@ Avant de passer au Lab 00, vérifiez :
 
 ---
 
-**👉 Tout est prêt ? Direction [architecture.md](architecture.md) pour comprendre l'architecture !**
+** Tout est prêt ? Direction [architecture.md](architecture.md) pour comprendre l'architecture !**

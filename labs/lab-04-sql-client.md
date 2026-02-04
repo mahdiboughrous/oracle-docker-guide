@@ -137,6 +137,11 @@ Une fenêtre "New / Select Database Connection" s'ouvre.
 | **Port** | `1521` | Port SQL*Net standard |
 | **Service name** | `FREEPDB1` | ⚠️ **Important** : PDB, pas CDB |
 
+>  **À observer**  
+> - Notez bien si vous utilisez **Service Name** ou **SID** dans la connexion  
+> - Ces deux options ne sont pas interchangeables pour Oracle  
+> - Une erreur de connexion est fréquente à cette étape si le mauvais type est sélectionné
+
 **Capture d'écran de référence** :
 
 ```
@@ -475,7 +480,7 @@ Avant de passer au lab suivant, vérifiez :
 
 Vous êtes connecté ! Place à la pratique SQL.
 
-**👉 [Lab 05 : Requêtes SQL de base](lab-05-basic-sql.md)**
+** [Lab 05 : Requêtes SQL de base](lab-05-basic-sql.md)**
 
 ---
 

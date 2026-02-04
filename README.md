@@ -38,7 +38,7 @@ Avant de commencer, assurez-vous d'avoir :
 - Une **connexion Internet** pour télécharger les images Docker
 - Un **éditeur de texte** (VS Code, Notepad++, etc.)
 
-👉 **Consultez le fichier [prerequisites.md](prerequisites.md) pour les instructions détaillées d'installation.**
+ **Consultez le fichier [prerequisites.md](prerequisites.md) pour les instructions détaillées d'installation.**
 
 ---
 
@@ -136,4 +136,4 @@ N'hésitez pas à ouvrir une issue ou proposer une pull request.
 
 ---
 
-**👉 Prêt à commencer ? Direction [prerequisites.md](prerequisites.md) !**
+** Prêt à commencer ? Direction [prerequisites.md](prerequisites.md) !**

@@ -334,4 +334,4 @@ Exemple : `docker-compose.yml`
 
 ---
 
-**👉 Retour au [README.md](README.md)**
+** Retour au [README.md](README.md)**

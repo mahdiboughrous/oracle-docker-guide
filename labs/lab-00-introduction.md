@@ -16,6 +16,13 @@
 
 ---
 
+> 💡 **Conseil important**  
+> Tout au long de ce TP, vous serez amené à **observer** ce qui se passe sur votre machine.  
+> Ce que vous observez pendant l'exécution sera plus important que ce que vous lirez après.  
+> Prenez le temps de noter les messages importants, les erreurs rencontrées, et les temps d'exécution.
+
+---
+
 ## 1. Qu'est-ce que Docker ?
 
 ### Définition simple
@@ -346,7 +353,7 @@ Avant de passer au lab suivant, assurez-vous de pouvoir répondre à :
 
 ## Prochaine étape
 
-**👉 [Lab 01 : Vérifier votre installation Docker](lab-01-docker-setup.md)**
+** [Lab 01 : Vérifier votre installation Docker](lab-01-docker-setup.md)**
 
 ---
 
