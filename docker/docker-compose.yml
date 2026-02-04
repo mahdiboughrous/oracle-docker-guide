@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  oracle-db:
+    # Image Oracle Database Free 23c (version slim optimisée)
+    # Maintenue par Gerd Völker : https://github.com/gvenzl/oci-oracle-free
+    image: gvenzl/oracle-free:23.4-slim
+    
+    # Nom du conteneur (facilite l'identification)
+    container_name: oracle-db
+    
+    # Ports exposés sur la machine hôte
+    # Format: HOST:CONTAINER
+    ports:
+      - "1521:1521"   # Port SQL*Net (connexions client SQL)
+      - "5500:5500"   # Port Oracle EM Express (interface web - optionnel)
+    
+    # Variables d'environnement pour configurer Oracle
+    environment:
+      # Mot de passe pour les utilisateurs SYSTEM et SYS
+      # ⚠️ À USAGE PÉDAGOGIQUE UNIQUEMENT - En production, utilisez des secrets
+      ORACLE_PASSWORD: OraclePass123
+      
+      # Création automatique d'un utilisateur applicatif (optionnel)
+      APP_USER: appuser
+      APP_USER_PASSWORD: AppUserPass123
+    
+    # Volume pour persister les données Oracle
+    # Les fichiers de base de données survivent même si le conteneur est supprimé
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+    
+    # Politique de redémarrage
+    # "unless-stopped" = redémarre automatiquement sauf si arrêté manuellement
+    restart: unless-stopped
+    
+    # Nom du réseau (permet la communication inter-conteneurs si besoin)
+    networks:
+      - oracle-network
+    
+    # Limites de ressources (évite la surconsommation)
+    # Ajustez selon votre machine (minimum 2 Go recommandé)
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+    
+    # Health check pour vérifier que la base est prête
+    # Docker marquera le conteneur "healthy" quand Oracle répond
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+
+# Définition du volume nommé
+# Docker crée et gère automatiquement ce volume
+volumes:
+  oracle-data:
+    driver: local
+
+# Définition du réseau
+# Permet l'isolation et la communication entre conteneurs
+networks:
+  oracle-network:
+    driver: bridge
