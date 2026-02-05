@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   oracle-db:
     # Image Oracle Database Free 23c (version slim optimisée)

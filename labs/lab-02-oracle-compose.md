@@ -55,8 +55,6 @@ Ouvrez le fichier `docker/docker-compose.yml` avec votre éditeur de texte préf
 ### Contenu complet
 
 ```yaml
-version: '3.8'
-
 services:
   oracle-db:
     image: gvenzl/oracle-free:23.4-slim
@@ -99,21 +97,7 @@ networks:
 
 ## Étape 3 : Comprendre chaque section
 
-### Section 1 : Métadonnées
-
-```yaml
-version: '3.8'
-```
-
-**Explication** :
-
-- Version du format Docker Compose utilisé
-- `3.8` est une version récente et stable
-- Pas besoin de modifier
-
----
-
-### Section 2 : Services
+### Section 1 : Services
 
 ```yaml
 services:
@@ -127,7 +111,7 @@ services:
 
 ---
 
-### Section 3 : Image Docker
+### Section 2 : Image Docker
 
 ```yaml
     image: gvenzl/oracle-free:23.4-slim
@@ -149,7 +133,7 @@ services:
 
 ---
 
-### Section 4 : Nom du conteneur
+### Section 3 : Nom du conteneur
 
 ```yaml
     container_name: oracle-db
@@ -163,7 +147,7 @@ services:
 
 ---
 
-### Section 5 : Ports exposés
+### Section 4 : Ports exposés
 
 ```yaml
     ports:
@@ -195,7 +179,7 @@ Si le port 1521 est déjà utilisé sur votre machine :
 
 ---
 
-### Section 6 : Variables d'environnement
+### Section 5 : Variables d'environnement
 
 ```yaml
     environment:
@@ -226,7 +210,7 @@ Vous pouvez changer les mots de passe :
 
 ---
 
-### Section 7 : Volumes (persistance)
+### Section 6 : Volumes (persistance)
 
 ```yaml
     volumes:
@@ -260,7 +244,7 @@ Vous pouvez changer les mots de passe :
 
 ---
 
-### Section 8 : Politique de redémarrage
+### Section 7 : Politique de redémarrage
 
 ```yaml
     restart: unless-stopped
@@ -279,7 +263,7 @@ Vous pouvez changer les mots de passe :
 
 ---
 
-### Section 9 : Réseau
+### Section 8 : Réseau
 
 ```yaml
     networks:
@@ -294,7 +278,7 @@ Vous pouvez changer les mots de passe :
 
 ---
 
-### Section 10 : Limites de ressources
+### Section 9 : Limites de ressources
 
 ```yaml
     deploy:
@@ -320,7 +304,7 @@ Vous pouvez changer les mots de passe :
 
 ---
 
-### Section 11 : Health check
+### Section 10 : Health check
 
 ```yaml
     healthcheck:
@@ -346,7 +330,7 @@ Vous pouvez changer les mots de passe :
 
 ---
 
-### Section 12 : Définition du volume
+### Section 11 : Définition du volume
 
 ```yaml
 volumes:
@@ -362,7 +346,7 @@ volumes:
 
 ---
 
-### Section 13 : Définition du réseau
+### Section 12 : Définition du réseau
 
 ```yaml
 networks:
