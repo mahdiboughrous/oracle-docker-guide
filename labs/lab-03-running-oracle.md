@@ -78,7 +78,7 @@ docker compose up -d
 
    ```
    Pulling oracle-db (gvenzl/oracle-free:23.4-slim)...
-   [====================>] 2.5GB/2.5GB
+   [====================>] 725.9MB/725.9MB
    ```
 
    ⏱️ **Durée** : 5-30 minutes (selon votre connexion)
@@ -315,20 +315,93 @@ SQL>
 
 ✅ **Succès !** Vous êtes connecté à Oracle.
 
+### Améliorer l'affichage avec le formatage
+
+Par défaut, SQL*Plus affiche les colonnes sur plusieurs lignes. Pour un affichage plus lisible :
+
+```sql
+-- Formater la colonne 'name' sur 20 caractères
+COLUMN name FORMAT A20
+
+-- Formater la colonne 'open_mode' sur 15 caractères
+COLUMN open_mode FORMAT A15
+```
+
+**Explication des commandes de formatage** :
+
+| Commande | Signification |
+|----------|---------------|
+| `COLUMN name` | Cible la colonne nommée "name" |
+| `FORMAT A20` | Format Alphabétique sur 20 caractères |
+| `FORMAT A15` | Format Alphabétique sur 15 caractères |
+
+> 💡 **Le format `A` suivi d'un nombre** définit la largeur maximale d'affichage pour une colonne texte.
+> Par exemple : `A20` = 20 caractères maximum.
+
 ### Tester une requête simple
 
 ```sql
+-- Interroger les bases de données pluggables
 SELECT name, open_mode FROM v$pdbs;
 ```
 
 **Résultat attendu** :
 
 ```
-NAME      OPEN_MODE
---------- ----------
-PDB$SEED  READ ONLY
-FREEPDB1  READ WRITE
+NAME                 OPEN_MODE
+-------------------- ---------------
+FREEPDB1             READ WRITE
 ```
+
+> 💡 **Où est `PDB$SEED` ?** : La base modèle `PDB$SEED` n'est visible que pour l'utilisateur SYS. Avec SYSTEM, vous voyez uniquement les PDBs utilisables.
+
+### Voir toutes les PDBs (avec SYSDBA)
+
+Pour voir également `PDB$SEED`, connectez-vous en tant que SYS :
+
+**Quitter SQL*Plus** :
+
+```sql
+EXIT;
+```
+
+**Se connecter en tant que SYSDBA** :
+
+```bash
+docker exec -it oracle-db sqlplus sys/OraclePass123@FREE as sysdba
+```
+
+**Explication** :
+- `sys` : Utilisateur administrateur suprême
+- `@FREE` : Connexion à la CDB (Container Database)
+- `as sysdba` : Avec les privilèges d'administrateur système
+
+**Requête** :
+
+```sql
+-- Formater les colonnes
+COLUMN name FORMAT A20
+COLUMN open_mode FORMAT A15
+
+-- Voir toutes les PDBs
+SELECT name, open_mode FROM v$pdbs;
+```
+
+**Résultat attendu** :
+
+```
+NAME                 OPEN_MODE
+-------------------- ---------------
+PDB$SEED             READ ONLY
+FREEPDB1             READ WRITE
+```
+
+**Explication des résultats** :
+
+| PDB | Mode | Description |
+|-----|------|-------------|
+| `PDB$SEED` | READ ONLY | Base modèle (template) pour créer de nouvelles PDBs |
+| `FREEPDB1` | READ WRITE | Votre base de données de travail |
 
 ### Quitter SQL*Plus
 
@@ -376,7 +449,7 @@ NAME   IMAGE   COMMAND   SERVICE   CREATED   STATUS   PORTS
 
 ---
 
-## 🔄 Étape 10 : Redémarrer Oracle (démarrages suivants)
+## Étape 10 : Redémarrer Oracle (démarrages suivants)
 
 ### Commande
 
@@ -406,7 +479,7 @@ oracle-db  | DATABASE IS READY TO USE!
 
 ---
 
-## 📊 Récapitulatif des commandes essentielles
+##  Récapitulatif des commandes essentielles
 
 | Commande                                  | Action                             |
 | ----------------------------------------- | ---------------------------------- |
@@ -419,7 +492,7 @@ oracle-db  | DATABASE IS READY TO USE!
 
 ---
 
-## ❓ Dépannage
+##  Dépannage
 
 ### Problème : "Error response from daemon: pull access denied"
 

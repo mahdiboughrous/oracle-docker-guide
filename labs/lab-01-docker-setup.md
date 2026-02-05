@@ -72,7 +72,7 @@ docker --version
 **Résultat attendu** :
 
 ```
-Docker version 24.0.7, build afdd53b
+Docker version 28.4.0, build d8eb465
 ```
 
 > 💡 **Note** : Le numéro de version peut varier (24.x, 25.x, etc.). L'important est que la commande fonctionne.
@@ -87,17 +87,65 @@ docker info
 
 ```
 Client:
- Version:    24.0.7
- Context:    default
+ Version:    28.4.0
+ Context:    desktop-linux
+ Debug Mode: false
+ Plugins:
+  ...
 
 Server:
- Containers: 0
-  Running: 0
+ Containers: 6
+  Running: 4
   Paused: 0
-  Stopped: 0
- Images: 3
- Server Version: 24.0.7
- Storage Driver: overlay2
+  Stopped: 2
+ Images: 9
+ Server Version: 28.4.0
+ Storage Driver: overlayfs
+  driver-type: io.containerd.snapshotter.v1
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Discovered Devices:
+  cdi: docker.com/gpu=webgpu
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 nvidia runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 05044ec0a9a75232cad458027ca83437aae3f4da
+ runc version: v1.2.5-0-g59923ef
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.6.87.2-microsoft-standard-WSL2
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 16
+ Total Memory: 15.23GiB
+ Name: docker-desktop
+ ID: 2f3ca315-5e70-40d1-91de-127f1ebf134a
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  ::1/128
+  127.0.0.0/8
+ Live Restore Enabled: false
 ```
 
 ✅ Si cette commande fonctionne, Docker est correctement installé.
@@ -120,7 +168,7 @@ docker compose version
 **Résultat attendu** :
 
 ```
-Docker Compose version v2.23.0
+Docker Compose version v2.39.4-desktop.1
 ```
 
 > ⚠️ **Important** : Notez bien `docker compose` (avec un **espace**), pas `docker-compose` (ancien format).
@@ -261,7 +309,7 @@ docker rmi hello-world
 
 ---
 
-## 📊 Récapitulatif des commandes essentielles
+##  Récapitulatif des commandes essentielles
 
 | Commande                   | Description                                    |
 | -------------------------- | ---------------------------------------------- |
@@ -277,7 +325,7 @@ docker rmi hello-world
 
 ---
 
-## ❓ Dépannage
+##  Dépannage
 
 ### Problème : "docker: command not found"
 

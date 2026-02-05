@@ -430,7 +430,7 @@ docker system prune -a --volumes
 
 ---
 
-## ❓ Dépannage
+##  Dépannage
 
 ### Problème : "Error response from daemon: volume is in use"
 

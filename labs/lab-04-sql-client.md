@@ -146,25 +146,9 @@ Une fenêtre "New / Select Database Connection" s'ouvre.
 
 **Capture d'écran de référence** :
 
-```
-┌────────────────────────────────────────────┐
-│  New / Select Database Connection          │
-├────────────────────────────────────────────┤
-│ Name:        Oracle23c-FREEPDB1            │
-│                                            │
-│ Username:    SYSTEM                        │
-│ Password:    ●●●●●●●●●●●●                  │
-│ ☑ Save Password                            │
-│                                            │
-│ Connection Type:  Basic  ☑                 │
-│                                            │
-│ Hostname:    localhost                     │
-│ Port:        1521                          │
-│ Service name: FREEPDB1                     │
-│                                            │
-│ [Test]  [Save]  [Connect]  [Cancel]       │
-└────────────────────────────────────────────┘
-```
+![Fenêtre de configuration de connexion SQL Developer](../images/labs/lab-04-sql-developer.png)
+
+**Figure 1** : Configuration de la connexion à Oracle Database 23c Free dans SQL Developer
 
 > ⚠️ **Erreur courante** : Ne cochez **PAS** "SID" mais bien **"Service name"** !
 
@@ -266,6 +250,20 @@ Connections
 - **Query Result** : Résultats tabulaires
 
 ---
+### Panneau des résultats : Results
+
+- **Script Output** : Sortie texte des scripts
+- **Query Result** : Résultats sous forme de tableau
+
+### Captures d'écran de référence
+
+**Interface principale** :
+
+![Interface principale de SQL Developer](../images/labs/lab-04-sql-developer-2.png)
+
+**Figure 2** : Vue d'ensemble de l'interface SQL Developer avec les différents panneaux
+
+---
 
 ## Étape 7 : Exécuter votre première requête
 
@@ -342,7 +340,6 @@ SELECT name, open_mode FROM v$pdbs;
 ```
 NAME         OPEN_MODE
 ------------ ----------
-PDB$SEED     READ ONLY
 FREEPDB1     READ WRITE
 ```
 
@@ -433,7 +430,7 @@ APPUSER
 
 ---
 
-## ❓ Dépannage
+##  Dépannage
 
 ### Problème : "ORA-12514: TNS:listener does not currently know of service requested in connect descriptor"
 

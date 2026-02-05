@@ -438,34 +438,8 @@ ERROR: yaml.scanner.ScannerError: ...
 
 Lorsque vous exécuterez `docker compose up` (Lab 03), voici ce qui se passera :
 
-```
-1. Lecture de docker-compose.yml
-          │
-          ▼
-2. Création du réseau oracle-network
-          │
-          ▼
-3. Création du volume oracle-data (si absent)
-          │
-          ▼
-4. Téléchargement de l'image gvenzl/oracle-free:23.4-slim (1ère fois)
-          │
-          ▼
-5. Création du conteneur oracle-db
-          │
-          ▼
-6. Démarrage du conteneur
-          │
-          ▼
-7. Initialisation d'Oracle (5-10 minutes au 1er lancement)
-   - Création de la CDB (FREE)
-   - Création de la PDB (FREEPDB1)
-   - Configuration du listener
-   - Création de l'utilisateur appuser
-          │
-          ▼
-8. Oracle prêt (healthcheck = healthy)
-```
+
+![Flux de démarrage Docker Compose](../images/architecture/docker-compose-startup-flow.jpg)
 
 ---
 

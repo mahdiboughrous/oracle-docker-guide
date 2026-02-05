@@ -29,7 +29,7 @@
 Imaginez Docker comme un conteneur maritime :
 
 
-![Analogie conteneur Docker](images/labs/lab-00-analogie-1.jpg)
+![Analogie conteneur Docker](../images/labs/lab-00-analogie-1.jpg)
 
 
 
@@ -76,7 +76,7 @@ Conteneur: oracle-db
 
 ### Relation Image ↔ Conteneur
 
-![Analogie conteneur Docker](images/labs/lab-00-analogie-2.jpg)
+![Analogie conteneur Docker](../images/labs/lab-00-analogie-2.jpg)
 
 > 💡 **Note** : Une seule image peut générer plusieurs conteneurs.
 
@@ -147,7 +147,7 @@ Oracle 23c utilise une architecture **multi-tenant** (multi-locataire).
 
 ### Analogie : Immeuble et appartements
 
-![Analogie conteneur Docker](images/labs/lab-00-analogie-3.jpg)
+![Analogie conteneur Docker](../images/labs/lab-00-analogie-3.jpg)
 
 ### Pourquoi cette architecture ?
 

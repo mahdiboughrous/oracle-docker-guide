@@ -37,16 +37,19 @@ Copiez et exécutez ce script :
 
 ```sql
 -- Créer un utilisateur nommé 'etudiant'
-CREATE USER etudiant IDENTIFIED BY Etudiant2024!;
+-- Le mot de passe contient un caractère spécial, il doit donc être entre guillemets
+CREATE USER etudiant IDENTIFIED BY "Etudiant2024!";
 
--- Accorder les droits de connexion
-GRANT CONNECT TO etudiant;
+-- Accorder le droit de connexion (privilège requis en Oracle 12c+)
+GRANT CREATE SESSION TO etudiant;
 
--- Accorder les droits de création d'objets
+-- Accorder les droits nécessaires pour les travaux pratiques
+-- (création de tables, séquences, procédures, etc.)
 GRANT RESOURCE TO etudiant;
 
 -- Donner un quota illimité sur le tablespace USERS
 ALTER USER etudiant QUOTA UNLIMITED ON USERS;
+
 ```
 
 **Exécution** : Sélectionnez tout (`Ctrl + A`) puis cliquez sur l'icône "Run Script"  (ou `F5`)
@@ -61,6 +64,8 @@ User ETUDIANT altered.
 ```
 
 ✅ L'utilisateur `etudiant` est créé.
+
+> Remarque pédagogique : le rôle `RESOURCE` est utilisé ici pour simplifier la gestion des droits dans un contexte de TP. En environnement de production, les privilèges sont généralement accordés de manière plus fine.
 
 ### 1.3 Créer une connexion pour `etudiant`
 
@@ -483,10 +488,10 @@ Dans votre projet, le dossier `sql/` contient :
 3. Le script s'ouvre dans un nouvel onglet
 4. Cliquez sur **Run Script** (F5)
 
-**Ou en ligne de commande** :
+**Ou en ligne de commande ( Powershell )** :
 
 ```bash
-docker exec -i oracle-db sqlplus etudiant/Etudiant2024!@FREEPDB1 @/path/to/03_sample_data.sql
+Get-Content ..\sql\03_sample_data.sql | docker exec -i oracle-db sqlplus etudiant/Etudiant2024!@FREEPDB1
 ```
 
 ---
@@ -511,7 +516,7 @@ TRUNCATE TABLE inscriptions;
 
 ---
 
-## 📊 Récapitulatif SQL
+##  Récapitulatif SQL
 
 | Opération          | Commande         | Exemple                                                |
 | ------------------- | ---------------- | ------------------------------------------------------ |
