@@ -1,10 +1,5 @@
 # Lab 04 : Installer et configurer SQL Developer
 
-> **Durée estimée** : 20 minutes  
-> **Niveau** : Débutant
-
----
-
 ## Objectifs
 
 À la fin de ce lab, vous aurez :
@@ -34,14 +29,17 @@ Rendez-vous sur :
 ### 1.2 Choisir la version pour votre OS
 
 **Windows** :
+
 - Téléchargez : **Windows 64-bit with JDK 11 included**
 - Format : `.zip` (environ 400 Mo)
 
 **macOS** :
+
 - Téléchargez : **macOS** (version avec JDK)
 - Format : `.dmg` ou `.app.zip`
 
 **Linux** :
+
 - Téléchargez: **Linux RPM** ou **Other Platforms** (avec JDK)
 - Format : `.rpm` ou `.zip`
 
@@ -61,29 +59,31 @@ Rendez-vous sur :
 ### Windows
 
 1. **Décompresser l'archive**
+
    - Faites un clic droit sur le fichier `.zip` téléchargé
    - Sélectionnez "Extraire tout..."
    - Choisissez un emplacement (ex : `C:\Tools\SQLDeveloper`)
-
 2. **Lancer SQL Developer**
+
    - Ouvrez le dossier décompressé
    - Double-cliquez sur `sqldeveloper.exe`
-
 3. **Premier lancement**
+
    - Une fenêtre "Import Preferences" peut apparaître
    - Cliquez sur **No** (première installation)
 
 ### macOS
 
 1. **Ouvrir le fichier `.dmg`**
+
    - Double-cliquez sur le fichier téléchargé
    - Glissez l'icône **SQLDeveloper.app** dans **Applications**
-
 2. **Lancer SQL Developer**
+
    - Allez dans Applications
    - Double-cliquez sur **SQLDeveloper**
-
 3. **Autorisation Gatekeeper**
+
    - macOS peut bloquer l'application (première fois)
    - Faites un **clic droit** > **Ouvrir**
    - Confirmez "Ouvrir"
@@ -119,6 +119,7 @@ sqldeveloper
 3. Cliquez sur le bouton **"+"** (ou clic droit > New Connection)
 
 Ou :
+
 - Menu **File** > **New** > **Database Connection**
 
 ### 3.2 Remplir les paramètres de connexion
@@ -127,19 +128,20 @@ Une fenêtre "New / Select Database Connection" s'ouvre.
 
 **Remplissez les champs suivants** :
 
-| Champ | Valeur | Explication |
-|-------|--------|-------------|
+| Champ                     | Valeur                 | Explication                                  |
+| ------------------------- | ---------------------- | -------------------------------------------- |
 | **Connection Name** | `Oracle23c-FREEPDB1` | Nom affiché dans SQL Developer (arbitraire) |
-| **Username** | `SYSTEM` | Utilisateur administrateur |
-| **Password** | `OraclePass123` | Mot de passe défini dans docker-compose.yml |
-| **Save Password** | ✅ Coché | Évite de retaper le mot de passe |
-| **Hostname** | `localhost` | Votre machine (l'hôte Docker) |
-| **Port** | `1521` | Port SQL*Net standard |
-| **Service name** | `FREEPDB1` | ⚠️ **Important** : PDB, pas CDB |
+| **Username**        | `SYSTEM`             | Utilisateur administrateur                   |
+| **Password**        | `OraclePass123`      | Mot de passe défini dans docker-compose.yml |
+| **Save Password**   | ✅ Coché              | Évite de retaper le mot de passe            |
+| **Hostname**        | `localhost`          | Votre machine (l'hôte Docker)               |
+| **Port**            | `1521`               | Port SQL*Net standard                        |
+| **Service name**    | `FREEPDB1`           | ⚠️**Important** : PDB, pas CDB       |
 
->  **À observer**  
-> - Notez bien si vous utilisez **Service Name** ou **SID** dans la connexion  
-> - Ces deux options ne sont pas interchangeables pour Oracle  
+> **À observer**
+>
+> - Notez bien si vous utilisez **Service Name** ou **SID** dans la connexion
+> - Ces deux options ne sont pas interchangeables pour Oracle
 > - Une erreur de connexion est fréquente à cette étape si le mauvais type est sélectionné
 
 **Capture d'écran de référence** :
@@ -187,17 +189,20 @@ Status: Success
 ### 4.3 Si échec
 
 **Message d'erreur** :
+
 ```
 Status: Failure - Test failed: IO Error: The Network Adapter could not establish the connection
 ```
 
 **Causes possibles** :
+
 1. ❌ Oracle n'est pas démarré
 2. ❌ Le conteneur n'est pas "healthy"
 3. ❌ Mauvais hostname, port ou service name
 4. ❌ Pare-feu bloque le port 1521
 
 **Solutions** :
+
 1. Vérifiez que le conteneur est actif : `docker compose ps`
 2. Vérifiez les logs : `docker compose logs`
 3. Testez le port : `Test-NetConnection localhost -Port 1521` (Windows)
@@ -216,12 +221,15 @@ La connexion apparaît maintenant dans le panneau de gauche sous **Connections**
 ### 5.2 Se connecter
 
 **Option 1** : Depuis la fenêtre de configuration
+
 - Cliquez sur **Connect**
 
 **Option 2** : Depuis le panneau Connections
+
 - Double-cliquez sur `Oracle23c-FREEPDB1`
 
 **Option 3** : Clic droit
+
 - Clic droit sur la connexion > **Connect**
 
 ### 5.3 Résultat
@@ -264,6 +272,7 @@ Connections
 ### 7.1 Ouvrir un Worksheet
 
 Si le worksheet n'est pas ouvert :
+
 - Clic droit sur votre connexion > **Open SQL Worksheet**
 
 ### 7.2 Taper une requête simple
@@ -275,6 +284,7 @@ SELECT 'Hello Oracle 23c!' AS message FROM dual;
 ```
 
 **Explication** :
+
 - `SELECT` : Interroge la base
 - `FROM dual` : Table virtuelle Oracle (1 ligne, 1 colonne)
 - `AS message` : Alias de colonne
@@ -282,9 +292,11 @@ SELECT 'Hello Oracle 23c!' AS message FROM dual;
 ### 7.3 Exécuter la requête
 
 **Méthode 1** : Icône "Execute Statement"
+
 - Cliquez sur l'icône ▶️ verte (ou `Ctrl + Enter`)
 
 **Méthode 2** : Menu
+
 - Menu **Run** > **Execute Statement**
 
 ### 7.4 Résultat attendu
@@ -312,6 +324,7 @@ SELECT banner FROM v$version;
 ```
 
 **Résultat** :
+
 ```
 BANNER
 -----------------------------------------------------------------------
@@ -325,6 +338,7 @@ SELECT name, open_mode FROM v$pdbs;
 ```
 
 **Résultat** :
+
 ```
 NAME         OPEN_MODE
 ------------ ----------
@@ -339,6 +353,7 @@ SELECT USER FROM dual;
 ```
 
 **Résultat** :
+
 ```
 USER
 ------
@@ -352,6 +367,7 @@ SELECT tablespace_name, status FROM dba_tablespaces;
 ```
 
 **Résultat** :
+
 ```
 TABLESPACE_NAME    STATUS
 ------------------ ------
@@ -373,14 +389,14 @@ Rappelez-vous : dans `docker-compose.yml`, nous avons créé un utilisateur `app
 1. Cliquez sur **"+"** (New Connection)
 2. Remplissez :
 
-| Champ | Valeur |
-|-------|--------|
+| Champ           | Valeur                |
+| --------------- | --------------------- |
 | Connection Name | `Oracle23c-AppUser` |
-| Username | `appuser` |
-| Password | `AppUserPass123` |
-| Hostname | `localhost` |
-| Port | `1521` |
-| Service name | `FREEPDB1` |
+| Username        | `appuser`           |
+| Password        | `AppUserPass123`    |
+| Hostname        | `localhost`         |
+| Port            | `1521`              |
+| Service name    | `FREEPDB1`          |
 
 3. Cliquez sur **Test** → **Success**
 4. Cliquez sur **Save** puis **Connect**
@@ -394,6 +410,7 @@ SELECT USER FROM dual;
 ```
 
 **Résultat** :
+
 ```
 USER
 --------
@@ -406,13 +423,13 @@ APPUSER
 
 ## 📋 Récapitulatif des paramètres de connexion
 
-| Paramètre | Valeur | Ne pas confondre |
-|-----------|--------|------------------|
-| Hostname | `localhost` | Pas `127.0.0.1` (fonctionne aussi) |
-| Port | `1521` | Port par défaut Oracle |
-| Service name | `FREEPDB1` | ⚠️ Pas `FREE` (CDB) |
-| Username | `SYSTEM` ou `appuser` | Selon vos besoins |
-| Password | `OraclePass123` ou `AppUserPass123` | Défini dans docker-compose.yml |
+| Paramètre   | Valeur                                  | Ne pas confondre                     |
+| ------------ | --------------------------------------- | ------------------------------------ |
+| Hostname     | `localhost`                           | Pas `127.0.0.1` (fonctionne aussi) |
+| Port         | `1521`                                | Port par défaut Oracle              |
+| Service name | `FREEPDB1`                            | ⚠️ Pas `FREE` (CDB)              |
+| Username     | `SYSTEM` ou `appuser`               | Selon vos besoins                    |
+| Password     | `OraclePass123` ou `AppUserPass123` | Défini dans docker-compose.yml      |
 
 ---
 
@@ -423,6 +440,7 @@ APPUSER
 **Cause** : Mauvais service name.
 
 **Solution** :
+
 - Vérifiez que vous utilisez bien `FREEPDB1` (pas `FREE`)
 - Vérifiez avec : `docker exec -it oracle-db lsnrctl status`
 
@@ -431,6 +449,7 @@ APPUSER
 **Cause** : Mauvais mot de passe.
 
 **Solution** :
+
 - Vérifiez le mot de passe dans `docker-compose.yml`
 - Par défaut : `OraclePass123`
 
@@ -439,6 +458,7 @@ APPUSER
 **Cause** : Connexion interrompue.
 
 **Solution** :
+
 - Vérifiez que le conteneur est actif : `docker compose ps`
 - Vérifiez que le statut est "(healthy)"
 
@@ -447,6 +467,7 @@ APPUSER
 **Cause** : Java introuvable ou incompatible.
 
 **Solution** :
+
 - Téléchargez la version **avec JDK inclus**
 - Ou installez Java 11+ : [Adoptium](https://adoptium.net/)
 
@@ -465,7 +486,7 @@ Avant de passer au lab suivant, vérifiez :
 
 ---
 
-## 🎓 Ce que vous avez appris
+## Ce que vous avez appris
 
 - ✅ Installer et configurer SQL Developer
 - ✅ Créer une connexion à Oracle Database
@@ -476,7 +497,7 @@ Avant de passer au lab suivant, vérifiez :
 
 ---
 
-## 🔜 Prochaine étape
+## Prochaine étape
 
 Vous êtes connecté ! Place à la pratique SQL.
 
@@ -484,7 +505,7 @@ Vous êtes connecté ! Place à la pratique SQL.
 
 ---
 
-## 📚 Pour aller plus loin
+## Pour aller plus loin
 
 - [Oracle SQL Developer Documentation](https://docs.oracle.com/en/database/oracle/sql-developer/)
 - [Oracle SQL Language Reference](https://docs.oracle.com/en/database/oracle/oracle-database/23/sqlrf/)

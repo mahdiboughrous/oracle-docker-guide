@@ -1,10 +1,5 @@
 # Lab 06 : Nettoyer et réinitialiser l'environnement
 
-> **Durée estimée** : 10 minutes  
-> **Niveau** : Débutant
-
----
-
 ## Objectifs
 
 À la fin de ce lab, vous serez capable de :
@@ -34,6 +29,7 @@ docker compose down
 ```
 
 **Ce qui se passe** :
+
 ```
 [+] Running 2/2
  ✔ Container oracle-db            Removed
@@ -41,6 +37,7 @@ docker compose down
 ```
 
 **Effet** :
+
 - ✅ Le conteneur est arrêté et supprimé
 - ✅ Le réseau est supprimé
 - ✅ **Le volume est conservé** (données intactes)
@@ -52,6 +49,7 @@ docker compose ps
 ```
 
 **Résultat attendu** :
+
 ```
 NAME   IMAGE   COMMAND   SERVICE   CREATED   STATUS   PORTS
 ```
@@ -64,8 +62,8 @@ NAME   IMAGE   COMMAND   SERVICE   CREATED   STATUS   PORTS
 
 Même après `docker compose down`, les données sont conservées dans le volume.
 
->  **Concept clé à comprendre**  
-> Le volume Docker joue un rôle critique dans ce TP.  
+> **Concept clé à comprendre**
+> Le volume Docker joue un rôle critique dans ce TP.
 > Observez attentivement ce qui se passe avec et sans le volume.
 
 ### Lister les volumes
@@ -75,6 +73,7 @@ docker volume ls
 ```
 
 **Résultat attendu** :
+
 ```
 DRIVER    VOLUME NAME
 local     docker_oracle-data
@@ -89,6 +88,7 @@ docker volume inspect docker_oracle-data
 ```
 
 **Résultat** (extrait) :
+
 ```json
 [
     {
@@ -114,11 +114,13 @@ docker compose up -d
 ```
 
 **Résultat** :
+
 - ✅ Démarrage rapide (1-2 minutes)
 - ✅ Toutes vos données sont présentes (tables, utilisateurs, etc.)
 - ✅ Pas de réinitialisation de la base
 
 **Vérification** :
+
 ```bash
 docker exec -it oracle-db sqlplus etudiant/Etudiant2024!@FREEPDB1
 ```
@@ -142,10 +144,12 @@ docker compose down -v
 ```
 
 **Explication** :
+
 - `down` : Arrête et supprime les conteneurs
 - `-v` : Supprime aussi les volumes (**données perdues**)
 
 **Résultat** :
+
 ```
 [+] Running 3/3
  ✔ Container oracle-db            Removed
@@ -153,9 +157,9 @@ docker compose down -v
  ✔ Volume docker_oracle-data      Removed
 ```
 
-> ⚠️ **Conséquence importante**  
-> Notez bien la ligne `Volume docker_oracle-data Removed`.  
-> Que signifie cette suppression pour vos données ?  
+> ⚠️ **Conséquence importante**
+> Notez bien la ligne `Volume docker_oracle-data Removed`.
+> Que signifie cette suppression pour vos données ?
 > Comparez avec un simple `docker compose down` (sans `-v`).
 
 ### Vérifier la suppression
@@ -165,6 +169,7 @@ docker volume ls
 ```
 
 **Résultat attendu** :
+
 ```
 DRIVER    VOLUME NAME
 ```
@@ -186,6 +191,7 @@ docker compose up -d
 ```
 
 **Ce qui se passe** :
+
 1. Création d'un nouveau volume `docker_oracle-data` (vide)
 2. Initialisation complète d'Oracle (5-10 minutes)
 3. Création de la CDB et PDB
@@ -198,6 +204,7 @@ docker compose logs -f
 ```
 
 Attendez le message :
+
 ```
 DATABASE IS READY TO USE!
 ```
@@ -215,6 +222,7 @@ docker images
 ```
 
 **Résultat possible** :
+
 ```
 REPOSITORY                TAG          IMAGE ID       CREATED        SIZE
 gvenzl/oracle-free        23.4-slim    abc123def456   2 weeks ago    2.5GB
@@ -237,6 +245,7 @@ docker image prune -a
 **Attention** : Cela supprime **toutes** les images non utilisées par un conteneur actif.
 
 **Confirmation** :
+
 ```
 WARNING! This will remove all images without at least one container associated to them.
 Are you sure you want to continue? [y/N] y
@@ -255,6 +264,7 @@ docker system prune -a --volumes
 ```
 
 **Ce qui est supprimé** :
+
 - ❌ Tous les conteneurs arrêtés
 - ❌ Tous les réseaux inutilisés
 - ❌ Toutes les images non utilisées
@@ -262,6 +272,7 @@ docker system prune -a --volumes
 - ❌ Tous les caches de build
 
 **Confirmation** :
+
 ```
 WARNING! This will remove:
   - all stopped containers
@@ -282,6 +293,7 @@ docker system df
 ```
 
 **Avant nettoyage** :
+
 ```
 TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
 Images          5         1         5.2GB     2.7GB (52%)
@@ -290,6 +302,7 @@ Local Volumes   2         1         3GB       1.5GB (50%)
 ```
 
 **Après nettoyage** :
+
 ```
 TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
 Images          1         1         2.5GB     0B (0%)
@@ -319,6 +332,7 @@ docker stats oracle-db
 ```
 
 **Résultat** (si le conteneur est actif) :
+
 ```
 CONTAINER ID   NAME        CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O
 abc123def456   oracle-db   15.5%     1.8GiB / 4GiB        45%       1.2kB / 0B    50MB / 10MB
@@ -330,14 +344,14 @@ Appuyez sur `Ctrl + C` pour quitter.
 
 ## Récapitulatif des commandes
 
-| Commande | Action | Données conservées ? |
-|----------|--------|----------------------|
-| `docker compose stop` | Arrête le conteneur (ne le supprime pas) | ✅ Oui |
-| `docker compose down` | Arrête et supprime le conteneur | ✅ Oui (volume intact) |
-| `docker compose down -v` | Arrête, supprime conteneur ET volume | ❌ Non (tout supprimé) |
-| `docker volume rm <nom>` | Supprime un volume spécifique | ❌ Non |
-| `docker image prune -a` | Supprime toutes les images inutilisées | N/A |
-| `docker system prune -a --volumes` | Nettoyage complet de Docker | ❌ Non |
+| Commande                             | Action                                    | Données conservées ?  |
+| ------------------------------------ | ----------------------------------------- | ----------------------- |
+| `docker compose stop`              | Arrête le conteneur (ne le supprime pas) | ✅ Oui                  |
+| `docker compose down`              | Arrête et supprime le conteneur          | ✅ Oui (volume intact)  |
+| `docker compose down -v`           | Arrête, supprime conteneur ET volume     | ❌ Non (tout supprimé) |
+| `docker volume rm <nom>`           | Supprime un volume spécifique            | ❌ Non                  |
+| `docker image prune -a`            | Supprime toutes les images inutilisées   | N/A                     |
+| `docker system prune -a --volumes` | Nettoyage complet de Docker               | ❌ Non                  |
 
 ---
 
@@ -348,6 +362,7 @@ Appuyez sur `Ctrl + C` pour quitter.
 **Situation** : Vous avez fini pour aujourd'hui, vous voulez libérer de la RAM.
 
 **Commande** :
+
 ```bash
 docker compose down
 ```
@@ -355,6 +370,7 @@ docker compose down
 **Résultat** : Conteneur arrêté, données conservées.
 
 **Reprise** :
+
 ```bash
 docker compose up -d
 ```
@@ -366,6 +382,7 @@ docker compose up -d
 **Situation** : Vous voulez repartir de zéro pour un nouveau TP.
 
 **Commande** :
+
 ```bash
 docker compose down -v
 docker compose up -d
@@ -380,17 +397,19 @@ docker compose up -d
 **Situation** : Vous voulez tester Oracle 21c au lieu de 23c.
 
 **Étapes** :
+
 1. Arrêter et supprimer :
+
    ```bash
    docker compose down -v
    ```
-
 2. Modifier `docker-compose.yml` :
+
    ```yaml
    image: gvenzl/oracle-free:21.3-slim  # Au lieu de 23.4-slim
    ```
-
 3. Redémarrer :
+
    ```bash
    docker compose up -d
    ```
@@ -402,6 +421,7 @@ docker compose up -d
 **Situation** : Docker occupe trop d'espace.
 
 **Commande** :
+
 ```bash
 docker system prune -a --volumes
 ```
@@ -417,6 +437,7 @@ docker system prune -a --volumes
 **Cause** : Le conteneur utilise encore le volume.
 
 **Solution** :
+
 ```bash
 docker compose down
 docker volume rm docker_oracle-data
@@ -427,6 +448,7 @@ docker volume rm docker_oracle-data
 **Cause** : Un conteneur zombie utilise le volume.
 
 **Solution** :
+
 ```bash
 # Lister tous les conteneurs (actifs + arrêtés)
 docker ps -a
@@ -443,6 +465,7 @@ docker volume rm docker_oracle-data
 **Cause** : Accumulation d'images et volumes.
 
 **Solution** :
+
 ```bash
 # Voir l'utilisation
 docker system df
@@ -512,7 +535,7 @@ Vous avez terminé tous les labs du guide !
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 - [README.md](../README.md) : Présentation du guide
 - [architecture.md](../architecture.md) : Schéma de l'infrastructure

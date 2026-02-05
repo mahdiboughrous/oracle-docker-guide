@@ -1,10 +1,5 @@
 # Lab 03 : Démarrer Oracle Database
 
-> **Durée estimée** : 20-30 minutes (dont 5-10 min d'attente au 1er lancement)  
-> **Niveau** : Débutant
-
----
-
 ## Objectifs
 
 À la fin de ce lab, vous aurez :
@@ -36,16 +31,19 @@ cd docker
 Vérifiez que le fichier `docker-compose.yml` est présent :
 
 ### Windows (PowerShell)
+
 ```powershell
 ls
 ```
 
 ### macOS / Linux
+
 ```bash
 ls -la
 ```
 
 **Résultat attendu** :
+
 ```
 docker-compose.yml
 ```
@@ -61,6 +59,7 @@ docker compose up -d
 ```
 
 **Explication des options** :
+
 - `up` : Crée et démarre les conteneurs
 - `-d` : Mode détaché (détached = en arrière-plan)
 
@@ -76,28 +75,31 @@ docker compose up -d
 **Étapes détaillées** :
 
 1. **Téléchargement de l'image** (si absente)
+
    ```
    Pulling oracle-db (gvenzl/oracle-free:23.4-slim)...
    [====================>] 2.5GB/2.5GB
    ```
-   ⏱️ **Durée** : 5-30 minutes (selon votre connexion)
 
+   ⏱️ **Durée** : 5-30 minutes (selon votre connexion)
 2. **Création du réseau et du volume**
+
    ```
    Network docker_oracle-network  Created
    Volume docker_oracle-data      Created
    ```
-
 3. **Démarrage du conteneur**
+
    ```
    Container oracle-db  Started
    ```
 
 > 💡 **Note** : Au premier lancement, Oracle doit créer la base de données (CDB + PDB). Cela prend **5 à 10 minutes**.
 
->  **Prenez un moment pour observer**  
-> - Le temps nécessaire au premier démarrage sur votre machine  
-> - Les différentes étapes affichées pendant la création de la base  
+> **Prenez un moment pour observer**
+>
+> - Le temps nécessaire au premier démarrage sur votre machine
+> - Les différentes étapes affichées pendant la création de la base
 > - Notez l'heure de début et de fin du processus
 
 ---
@@ -111,6 +113,7 @@ docker compose logs -f
 ```
 
 **Explication** :
+
 - `logs` : Affiche les logs du conteneur
 - `-f` : Mode suivi (follow) en temps réel
 
@@ -136,28 +139,30 @@ oracle-db  | DATABASE IS READY TO USE!
 
 ### Points clés à observer
 
-| Message dans les logs | Signification |
-|----------------------|---------------|
-| `first database startup` | Premier lancement détecté |
-| `creating database` | Création de la CDB (FREE) |
+| Message dans les logs           | Signification                  |
+| ------------------------------- | ------------------------------ |
+| `first database startup`      | Premier lancement détecté    |
+| `creating database`           | Création de la CDB (FREE)     |
 | `creating pluggable database` | Création de la PDB (FREEPDB1) |
-| `DATABASE IS READY TO USE!` | ✅ Oracle est prêt ! |
+| `DATABASE IS READY TO USE!`   | ✅ Oracle est prêt !          |
 
-> 💡 **À retenir**  
-> Le message exact indiquant que la base est opérationnelle est important.  
+> 💡 **À retenir**
+> Le message exact indiquant que la base est opérationnelle est important.
 > Observez attentivement les logs : certains messages confirment que la base est prête à accepter des connexions.
 
 **Pour quitter le suivi des logs** : `Ctrl + C`
 
 > ⚠️ **Important** : `Ctrl + C` quitte seulement le suivi des logs, le conteneur continue de tourner.
 
->  **Expérience à tester**  
-> Après ce premier démarrage, essayez d'arrêter puis de redémarrer le conteneur :  
+> **Expérience à tester**
+> Après ce premier démarrage, essayez d'arrêter puis de redémarrer le conteneur :
+>
 > ```bash
 > docker compose down
 > docker compose up -d
 > docker compose logs -f
-> ```  
+> ```
+>
 > Observez la différence de temps. Pourquoi le deuxième démarrage est-il plus rapide ?
 
 ---
@@ -171,6 +176,7 @@ docker compose ps
 ```
 
 **Résultat attendu** :
+
 ```
 NAME        IMAGE                            STATUS        PORTS
 oracle-db   gvenzl/oracle-free:23.4-slim     Up 5 minutes  0.0.0.0:1521->1521/tcp, 0.0.0.0:5500->5500/tcp
@@ -178,12 +184,12 @@ oracle-db   gvenzl/oracle-free:23.4-slim     Up 5 minutes  0.0.0.0:1521->1521/tc
 
 ### Statuts possibles
 
-| Status | Signification |
-|--------|---------------|
-| `Up X minutes` | ✅ Conteneur actif |
-| `Up X minutes (healthy)` | ✅ Conteneur actif ET base prête |
+| Status                              | Signification                                     |
+| ----------------------------------- | ------------------------------------------------- |
+| `Up X minutes`                    | ✅ Conteneur actif                                |
+| `Up X minutes (healthy)`          | ✅ Conteneur actif ET base prête                 |
 | `Up X minutes (health: starting)` | 🟡 Conteneur actif, Oracle en cours de démarrage |
-| `Exited (X)` | ❌ Conteneur arrêté (erreur possible) |
+| `Exited (X)`                      | ❌ Conteneur arrêté (erreur possible)           |
 
 ---
 
@@ -196,16 +202,19 @@ docker ps
 ```
 
 **Résultat attendu** :
+
 ```
 CONTAINER ID   IMAGE                            STATUS                    PORTS
 abc123def456   gvenzl/oracle-free:23.4-slim     Up 8 minutes (healthy)    0.0.0.0:1521->1521/tcp
 ```
 
 **Statut "healthy"** :
+
 - ✅ Oracle est pleinement opérationnel
 - ✅ Vous pouvez vous connecter avec un client SQL
 
 **Si statut "(health: starting)"** :
+
 - 🟡 Oracle démarre encore
 - ⏱️ Attendez 2-3 minutes supplémentaires
 
@@ -253,6 +262,7 @@ Test-NetConnection -ComputerName localhost -Port 1521
 ```
 
 **Résultat attendu** :
+
 ```
 TcpTestSucceeded : True
 ```
@@ -264,6 +274,7 @@ nc -zv localhost 1521
 ```
 
 **Résultat attendu** :
+
 ```
 Connection to localhost port 1521 [tcp/*] succeeded!
 ```
@@ -283,6 +294,7 @@ docker exec -it oracle-db sqlplus system/OraclePass123@FREEPDB1
 ```
 
 **Explication** :
+
 - `docker exec` : Exécute une commande dans un conteneur actif
 - `-it` : Mode interactif avec terminal
 - `oracle-db` : Nom du conteneur
@@ -310,6 +322,7 @@ SELECT name, open_mode FROM v$pdbs;
 ```
 
 **Résultat attendu** :
+
 ```
 NAME      OPEN_MODE
 --------- ----------
@@ -334,6 +347,7 @@ docker compose down
 ```
 
 **Ce qui se passe** :
+
 ```
 [+] Running 2/2
  ✔ Container oracle-db            Removed
@@ -341,6 +355,7 @@ docker compose down
 ```
 
 **Important** :
+
 - Le conteneur est supprimé
 - Le réseau est supprimé
 - ✅ **Le volume est conservé** (vos données persistent)
@@ -352,6 +367,7 @@ docker compose ps
 ```
 
 **Résultat attendu** :
+
 ```
 NAME   IMAGE   COMMAND   SERVICE   CREATED   STATUS   PORTS
 ```
@@ -369,6 +385,7 @@ docker compose up -d
 ```
 
 **Différence avec le premier lancement** :
+
 - ❌ Pas de téléchargement d'image (déjà présente)
 - ❌ Pas de création de base de données (volume existe)
 - ✅ Démarrage en **1-2 minutes** seulement
@@ -391,14 +408,14 @@ oracle-db  | DATABASE IS READY TO USE!
 
 ## 📊 Récapitulatif des commandes essentielles
 
-| Commande | Action |
-|----------|--------|
-| `docker compose up -d` | Démarrer Oracle en arrière-plan |
-| `docker compose down` | Arrêter Oracle proprement |
-| `docker compose ps` | Voir l'état du conteneur |
-| `docker compose logs -f` | Suivre les logs en temps réel |
-| `docker exec -it oracle-db sqlplus ...` | Se connecter via SQL*Plus |
-| `docker ps` | État détaillé avec health check |
+| Commande                                  | Action                             |
+| ----------------------------------------- | ---------------------------------- |
+| `docker compose up -d`                  | Démarrer Oracle en arrière-plan  |
+| `docker compose down`                   | Arrêter Oracle proprement         |
+| `docker compose ps`                     | Voir l'état du conteneur          |
+| `docker compose logs -f`                | Suivre les logs en temps réel     |
+| `docker exec -it oracle-db sqlplus ...` | Se connecter via SQL*Plus          |
+| `docker ps`                             | État détaillé avec health check |
 
 ---
 
@@ -409,6 +426,7 @@ oracle-db  | DATABASE IS READY TO USE!
 **Cause** : Impossible de télécharger l'image.
 
 **Solution** :
+
 1. Vérifiez votre connexion Internet
 2. Vérifiez que Docker Desktop est lancé
 3. Essayez : `docker pull gvenzl/oracle-free:23.4-slim`
@@ -416,15 +434,18 @@ oracle-db  | DATABASE IS READY TO USE!
 ### Problème : Le conteneur redémarre en boucle
 
 **Diagnostic** :
+
 ```bash
 docker compose logs
 ```
 
 **Causes possibles** :
+
 - Pas assez de RAM (minimum 2 Go requis)
 - Port 1521 déjà utilisé
 
 **Solutions** :
+
 - Augmentez la RAM dans Docker Desktop (Settings > Resources)
 - Changez le port dans `docker-compose.yml` : `"1522:1521"`
 
@@ -433,6 +454,7 @@ docker compose logs
 **Cause** : L'initialisation prend plus de temps que prévu.
 
 **Solution** :
+
 1. Soyez patient (peut prendre jusqu'à 15 minutes)
 2. Vérifiez les logs : `docker compose logs -f`
 3. Vérifiez l'utilisation CPU/RAM dans Docker Desktop
@@ -442,6 +464,7 @@ docker compose logs
 **Cause** : Oracle démarre encore, le listener n'est pas prêt.
 
 **Solution** :
+
 - Attendez 2-3 minutes supplémentaires
 - Vérifiez le health check : `docker ps`
 
@@ -460,7 +483,7 @@ Avant de passer au lab suivant, vérifiez :
 
 ---
 
-## 🎓 Ce que vous avez appris
+##  Ce que vous avez appris
 
 - ✅ Démarrer et arrêter Oracle avec Docker Compose
 - ✅ Interpréter les logs de démarrage
@@ -471,7 +494,7 @@ Avant de passer au lab suivant, vérifiez :
 
 ---
 
-## 🔜 Prochaine étape
+##  Prochaine étape
 
 Oracle est prêt ! Passons maintenant à un client SQL graphique.
 
@@ -479,7 +502,7 @@ Oracle est prêt ! Passons maintenant à un client SQL graphique.
 
 ---
 
-## 📚 Pour aller plus loin
+##  Pour aller plus loin
 
 - [Docker Compose CLI Reference](https://docs.docker.com/compose/reference/)
 - [Oracle Database Startup](https://docs.oracle.com/en/database/oracle/oracle-database/23/admin/starting-up-and-shutting-down.html)

@@ -6,46 +6,8 @@ Ce document explique comment les différents composants de votre environnement i
 
 ## Vue d'ensemble
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Votre machine (hôte)                     │
-│                                                             │
-│  ┌─────────────────┐              ┌──────────────────┐    │
-│  │  SQL Developer  │              │  Navigateur Web  │    │
-│  │   (client SQL)  │              │   (optionnel)    │    │
-│  └────────┬────────┘              └────────┬─────────┘    │
-│           │                                │              │
-│           │ Port 1521                      │ Port 5500    │
-│           │ (SQL*Net)                      │ (EM Express) │
-│           │                                │              │
-│  ─────────┼────────────────────────────────┼──────────────│
-│           │        Docker Engine           │              │
-│  ─────────┼────────────────────────────────┼──────────────│
-│           │                                │              │
-│  ┌────────▼────────────────────────────────▼──────────┐   │
-│  │     Conteneur : oracle-db                         │   │
-│  │                                                    │   │
-│  │  ┌──────────────────────────────────────────┐    │   │
-│  │  │   Oracle Database 23c Free               │    │   │
-│  │  │   Image: gvenzl/oracle-free:23.4-slim    │    │   │
-│  │  │                                          │    │   │
-│  │  │   ┌────────────┐      ┌──────────────┐  │    │   │
-│  │  │   │  CDB       │      │  PDB         │  │    │   │
-│  │  │   │  (FREE)    │─────▶│  (FREEPDB1)  │  │    │   │
-│  │  │   └────────────┘      └──────────────┘  │    │   │
-│  │  └──────────────────────────────────────────┘    │   │
-│  │                                                    │   │
-│  │  Volume monté: /opt/oracle/oradata                │   │
-│  └────────────────────────┬───────────────────────────┘   │
-│                           │                               │
-│  ─────────────────────────┼───────────────────────────────│
-│                           │                               │
-│  ┌────────────────────────▼──────────────────────────┐   │
-│  │  Volume Docker : oracle-data                      │   │
-│  │  (persistance des données)                        │   │
-│  └───────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
-```
+
+![Architecture Oracle Docker](images/architecture/oracle-docker-flow-1.png)
 
 ---
 
@@ -147,24 +109,9 @@ Système de stockage persistant géré par Docker.
 
 Voici ce qui se passe quand vous vous connectez depuis SQL Developer :
 
-```
-1. SQL Developer (localhost:1521)
-          │
-          ▼
-2. Docker Engine (mapping de port)
-          │
-          ▼
-3. Conteneur oracle-db (port 1521 interne)
-          │
-          ▼
-4. Oracle Listener (écoute sur 1521)
-          │
-          ▼
-5. Instance Oracle FREE
-          │
-          ▼
-6. Service FREEPDB1 (votre PDB)
-```
+
+![Flux de connexion à une base de données Oracle conteneurisée](images/architecture/oracle-docker-flow-2.png)
+
 
 **Paramètres de connexion** :
 - **Hôte** : `localhost`
@@ -179,54 +126,21 @@ Voici ce qui se passe quand vous vous connectez depuis SQL Developer :
 
 ### Démarrage (premier lancement)
 
-```
-1. docker compose up
-          │
-          ▼
-2. Téléchargement de l'image (si absente)
-          │
-          ▼
-3. Création du conteneur
-          │
-          ▼
-4. Initialisation d'Oracle (5-10 min)
-   - Création de la CDB
-   - Création de la PDB
-   - Configuration du listener
-          │
-          ▼
-5. Base de données PRÊTE
-```
+
+![Cycle de démarrage initial du conteneur Oracle](images/architecture/oracle-docker-flow-3.png)
+
 
 ### Démarrage (lancements suivants)
 
-```
-1. docker compose up
-          │
-          ▼
-2. Démarrage du conteneur existant
-          │
-          ▼
-3. Oracle démarre (1-2 min)
-          │
-          ▼
-4. Base de données PRÊTE
-```
+
+![Cycle de redémarrage du conteneur Oracle](images/architecture/oracle-docker-flow-4.png)
+
 
 ### Arrêt propre
 
-```
-1. docker compose down
-          │
-          ▼
-2. Arrêt propre d'Oracle (shutdown)
-          │
-          ▼
-3. Arrêt du conteneur
-          │
-          ▼
-4. Volume conservé (données intactes)
-```
+
+![Cycle d'arrêt du conteneur Oracle](images/architecture/oracle-docker-flow-5.png)
+
 
 ---
 

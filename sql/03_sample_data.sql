@@ -19,28 +19,28 @@ PROMPT
 PROMPT [1/3] Insertion des étudiants...
 
 INSERT INTO etudiants (nom, prenom, email, date_naissance)
-VALUES ('Dupont', 'Marie', 'marie.dupont@ecole.fr', DATE '2003-05-15');
+VALUES ('B', 'Amine', 'b.amine@usms.ac.ma', DATE '2003-05-15');
 
 INSERT INTO etudiants (nom, prenom, email, date_naissance)
-VALUES ('Martin', 'Pierre', 'pierre.martin@ecole.fr', DATE '2002-11-20');
+VALUES ('T', 'Rim', 't.rim@usms.ac.ma', DATE '2002-11-20');
 
 INSERT INTO etudiants (nom, prenom, email, date_naissance)
-VALUES ('Bernard', 'Sophie', 'sophie.bernard@ecole.fr', DATE '2003-01-10');
+VALUES ('E', 'Hassan', 'e.hassan@usms.ac.ma', DATE '2003-01-10');
 
 INSERT INTO etudiants (nom, prenom, email, date_naissance)
-VALUES ('Dubois', 'Luc', 'luc.dubois@ecole.fr', DATE '2004-03-25');
+VALUES ('L', 'SAFAE', 'l.safae@usms.ac.ma', DATE '2004-03-25');
 
 INSERT INTO etudiants (nom, prenom, email, date_naissance)
-VALUES ('Rousseau', 'Emma', 'emma.rousseau@ecole.fr', DATE '2003-08-12');
+VALUES ('K', 'Youssef', 'k.youssef@usms.ac.ma', DATE '2003-08-12');
 
 INSERT INTO etudiants (nom, prenom, email, date_naissance)
-VALUES ('Moreau', 'Lucas', 'lucas.moreau@ecole.fr', DATE '2002-09-05');
+VALUES ('M', 'Fatima', 'm.fatima@usms.ac.ma', DATE '2002-09-05');
 
 INSERT INTO etudiants (nom, prenom, email, date_naissance)
-VALUES ('Leroy', 'Camille', 'camille.leroy@ecole.fr', DATE '2003-12-18');
+VALUES ('A', 'Karim', 'a.karim@usms.ac.ma', DATE '2003-12-18');
 
 INSERT INTO etudiants (nom, prenom, email, date_naissance)
-VALUES ('Simon', 'Hugo', 'hugo.simon@ecole.fr', DATE '2004-02-28');
+VALUES ('H', 'Salma', 'h.salma@usms.ac.ma', DATE '2004-02-28');
 
 PROMPT ✓ 8 étudiants insérés
 
@@ -78,7 +78,7 @@ PROMPT ✓ 6 cours insérés
 PROMPT
 PROMPT [3/3] Insertion des inscriptions...
 
--- Marie Dupont (id=1) : BDD, JAVA, WEB
+-- Amine B (id=1) : BDD, JAVA, WEB
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (1, 1, 15.5);   -- BDD
 
@@ -88,7 +88,7 @@ VALUES (1, 2, 14.0);   -- JAVA
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (1, 4, 16.25);  -- WEB
 
--- Pierre Martin (id=2) : BDD, JAVA, SYS
+-- Rim T (id=2) : BDD, JAVA, SYS
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (2, 1, 12.0);   -- BDD
 
@@ -98,7 +98,7 @@ VALUES (2, 2, 14.25);  -- JAVA
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (2, 5, 13.5);   -- SYS
 
--- Sophie Bernard (id=3) : BDD, JAVA, NET, IA
+-- Hassan E (id=3) : BDD, JAVA, NET, IA
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (3, 1, 16.75);  -- BDD
 
@@ -111,14 +111,14 @@ VALUES (3, 3, 15.0);   -- NET
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (3, 6, 17.5);   -- IA
 
--- Luc Dubois (id=4) : JAVA, WEB (pas encore de notes)
+-- SAFAE L (id=4) : JAVA, WEB (pas encore de notes)
 INSERT INTO inscriptions (id_etudiant, id_cours)
 VALUES (4, 2);         -- JAVA (note NULL)
 
 INSERT INTO inscriptions (id_etudiant, id_cours)
 VALUES (4, 4);         -- WEB (note NULL)
 
--- Emma Rousseau (id=5) : BDD, WEB, SYS
+-- Youssef K (id=5) : BDD, WEB, SYS
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (5, 1, 14.5);   -- BDD
 
@@ -128,21 +128,21 @@ VALUES (5, 4, 15.75);  -- WEB
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (5, 5, 16.0);   -- SYS
 
--- Lucas Moreau (id=6) : NET, IA
+-- Fatima M (id=6) : NET, IA
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (6, 3, 13.25);  -- NET
 
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (6, 6, 14.0);   -- IA
 
--- Camille Leroy (id=7) : BDD, JAVA
+-- Karim A (id=7) : BDD, JAVA
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (7, 1, 17.0);   -- BDD
 
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (7, 2, 16.5);   -- JAVA
 
--- Hugo Simon (id=8) : WEB, SYS
+-- Salma H (id=8) : WEB, SYS
 INSERT INTO inscriptions (id_etudiant, id_cours, note)
 VALUES (8, 4, 12.75);  -- WEB
 

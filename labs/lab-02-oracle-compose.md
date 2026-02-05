@@ -1,10 +1,5 @@
 # Lab 02 : Configurer Docker Compose pour Oracle
 
-> **Durée estimée** : 15 minutes  
-> **Niveau** : Débutant
-
----
-
 ## Objectifs
 
 À la fin de ce lab, vous serez capable de :
@@ -28,11 +23,13 @@
 Ouvrez un terminal et placez-vous dans le dossier du projet :
 
 ### Windows (PowerShell)
+
 ```powershell
 cd C:\Users\VOTRE_NOM\Downloads\oracle-docker-guide
 ```
 
 ### macOS / Linux
+
 ```bash
 cd ~/Downloads/oracle-docker-guide
 ```
@@ -44,6 +41,7 @@ ls docker
 ```
 
 **Résultat attendu** :
+
 ```
 docker-compose.yml
 ```
@@ -108,6 +106,7 @@ version: '3.8'
 ```
 
 **Explication** :
+
 - Version du format Docker Compose utilisé
 - `3.8` est une version récente et stable
 - Pas besoin de modifier
@@ -122,6 +121,7 @@ services:
 ```
 
 **Explication** :
+
 - Un **service** = un conteneur
 - `oracle-db` est le nom du service (arbitraire, vous pouvez le changer)
 
@@ -134,6 +134,7 @@ services:
 ```
 
 **Explication** :
+
 - **Image source** : `gvenzl/oracle-free`
 - **Version** : `23.4-slim` (Oracle 23c, version allégée)
 - **Alternatives** :
@@ -141,6 +142,7 @@ services:
   - `latest` : dernière version (non recommandé pour la reproductibilité)
 
 **Pourquoi cette image ?**
+
 - Officieuse mais très utilisée et maintenue
 - Optimisée pour Docker
 - Démarrage plus rapide que l'image officielle Oracle
@@ -154,6 +156,7 @@ services:
 ```
 
 **Explication** :
+
 - Nom explicite du conteneur (visible avec `docker ps`)
 - Facilite l'identification
 - Optionnel (Docker génère un nom aléatoire si absent)
@@ -169,11 +172,13 @@ services:
 ```
 
 **Explication** :
+
 - Format : `"PORT_HOTE:PORT_CONTENEUR"`
 - **1521** : Port SQL*Net (connexions client SQL) ← **Obligatoire**
 - **5500** : Oracle Enterprise Manager Express (interface web) ← Optionnel
 
 **Schéma** :
+
 ```
 Votre machine (localhost)     Conteneur
       1521  ──────────────────▶  1521  (Oracle Listener)
@@ -182,6 +187,7 @@ Votre machine (localhost)     Conteneur
 
 **Modification possible** :
 Si le port 1521 est déjà utilisé sur votre machine :
+
 ```yaml
     ports:
       - "1522:1521"   # Utilisez 1522 sur l'hôte, 1521 dans le conteneur
@@ -200,16 +206,17 @@ Si le port 1521 est déjà utilisé sur votre machine :
 
 **Explication** :
 
-| Variable | Valeur | Utilisation |
-|----------|--------|-------------|
-| `ORACLE_PASSWORD` | `OraclePass123` | Mot de passe pour `SYSTEM` et `SYS` |
-| `APP_USER` | `appuser` | Nom d'un utilisateur applicatif (créé automatiquement) |
-| `APP_USER_PASSWORD` | `AppUserPass123` | Mot de passe de `appuser` |
+| Variable              | Valeur             | Utilisation                                              |
+| --------------------- | ------------------ | -------------------------------------------------------- |
+| `ORACLE_PASSWORD`   | `OraclePass123`  | Mot de passe pour `SYSTEM` et `SYS`                  |
+| `APP_USER`          | `appuser`        | Nom d'un utilisateur applicatif (créé automatiquement) |
+| `APP_USER_PASSWORD` | `AppUserPass123` | Mot de passe de `appuser`                              |
 
 > ⚠️ **Sécurité** : Ces mots de passe sont **à usage pédagogique uniquement**. En production, utilisez des mots de passe complexes et sécurisés.
 
 **Modification recommandée (optionnel)** :
 Vous pouvez changer les mots de passe :
+
 ```yaml
     environment:
       ORACLE_PASSWORD: MonMotDePasse2024!
@@ -227,11 +234,13 @@ Vous pouvez changer les mots de passe :
 ```
 
 **Explication** :
+
 - **Volume nommé** : `oracle-data`
 - **Point de montage** : `/opt/oracle/oradata` (dossier des données Oracle dans le conteneur)
 - **Rôle** : Persister les données (tables, utilisateurs, etc.) même si le conteneur est supprimé
 
 **Sans volume** :
+
 ```
 1. Créer une table
 2. Arrêter le conteneur
@@ -240,6 +249,7 @@ Vous pouvez changer les mots de passe :
 ```
 
 **Avec volume** :
+
 ```
 1. Créer une table
 2. Arrêter le conteneur
@@ -258,12 +268,12 @@ Vous pouvez changer les mots de passe :
 
 **Explication** :
 
-| Valeur | Comportement |
-|--------|--------------|
-| `no` | Ne jamais redémarrer automatiquement |
-| `always` | Toujours redémarrer (même au boot de l'OS) |
-| `on-failure` | Redémarrer uniquement en cas d'erreur |
-| `unless-stopped` | Redémarrer sauf si arrêté manuellement |
+| Valeur             | Comportement                                 |
+| ------------------ | -------------------------------------------- |
+| `no`             | Ne jamais redémarrer automatiquement        |
+| `always`         | Toujours redémarrer (même au boot de l'OS) |
+| `on-failure`     | Redémarrer uniquement en cas d'erreur       |
+| `unless-stopped` | Redémarrer sauf si arrêté manuellement    |
 
 **Recommandé** : `unless-stopped` (évite le redémarrage inopiné au boot)
 
@@ -277,6 +287,7 @@ Vous pouvez changer les mots de passe :
 ```
 
 **Explication** :
+
 - Crée un réseau isolé nommé `oracle-network`
 - Utile si vous ajoutez d'autres conteneurs (ex : application web)
 - Les conteneurs sur le même réseau peuvent communiquer
@@ -295,16 +306,17 @@ Vous pouvez changer les mots de passe :
 ```
 
 **Explication** :
+
 - **limits** : Maximum de RAM utilisable (4 Go)
 - **reservations** : RAM garantie au démarrage (2 Go)
 
 **Ajustement selon votre machine** :
 
-| RAM totale machine | Recommandation |
-|--------------------|----------------|
-| 8 Go | `limits: 2G`, `reservations: 1G` |
-| 16 Go | `limits: 4G`, `reservations: 2G` |
-| 32 Go+ | `limits: 8G`, `reservations: 4G` |
+| RAM totale machine | Recommandation                       |
+| ------------------ | ------------------------------------ |
+| 8 Go               | `limits: 2G`, `reservations: 1G` |
+| 16 Go              | `limits: 4G`, `reservations: 2G` |
+| 32 Go+             | `limits: 8G`, `reservations: 4G` |
 
 ---
 
@@ -320,6 +332,7 @@ Vous pouvez changer les mots de passe :
 ```
 
 **Explication** :
+
 - **test** : Commande pour vérifier si Oracle est prêt
 - **interval** : Vérification toutes les 30 secondes
 - **timeout** : Timeout de 10 secondes par test
@@ -327,6 +340,7 @@ Vous pouvez changer les mots de passe :
 - **start_period** : Attendre 2 minutes avant de commencer les tests (le temps qu'Oracle démarre)
 
 **Utilité** :
+
 - Docker sait quand Oracle est vraiment prêt
 - Visible avec `docker ps` (colonne STATUS)
 
@@ -341,6 +355,7 @@ volumes:
 ```
 
 **Explication** :
+
 - Déclare le volume `oracle-data` comme un volume local
 - Docker le crée automatiquement s'il n'existe pas
 - Géré par Docker (pas besoin de créer manuellement)
@@ -356,6 +371,7 @@ networks:
 ```
 
 **Explication** :
+
 - Crée un réseau de type **bridge** (réseau isolé)
 - Les conteneurs peuvent communiquer entre eux via ce réseau
 
@@ -404,13 +420,16 @@ docker compose config
 ```
 
 **Résultat attendu** :
+
 - Le fichier YAML retraité et validé s'affiche
 - Aucune erreur de syntaxe
 
 **Si erreur** :
+
 ```
 ERROR: yaml.scanner.ScannerError: ...
 ```
+
 → Vérifiez l'indentation (YAML est sensible aux espaces).
 
 ---
@@ -452,15 +471,15 @@ Lorsque vous exécuterez `docker compose up` (Lab 03), voici ce qui se passera :
 
 ## Récapitulatif des paramètres clés
 
-| Paramètre | Valeur par défaut | À modifier ? |
-|-----------|-------------------|--------------|
-| Image | `gvenzl/oracle-free:23.4-slim` | ❌ Non |
-| Nom conteneur | `oracle-db` | 🟡 Optionnel |
-| Port SQL | `1521:1521` | 🟡 Si conflit |
-| Port EM Express | `5500:5500` | 🟡 Optionnel |
-| Mot de passe SYSTEM | `OraclePass123` | 🟡 Recommandé |
-| Volume | `oracle-data` | ❌ Non |
-| RAM limite | `4G` | 🟡 Selon votre machine |
+| Paramètre          | Valeur par défaut               | À modifier ?          |
+| ------------------- | -------------------------------- | ---------------------- |
+| Image               | `gvenzl/oracle-free:23.4-slim` | ❌ Non                 |
+| Nom conteneur       | `oracle-db`                    | 🟡 Optionnel           |
+| Port SQL            | `1521:1521`                    | 🟡 Si conflit          |
+| Port EM Express     | `5500:5500`                    | 🟡 Optionnel           |
+| Mot de passe SYSTEM | `OraclePass123`                | 🟡 Recommandé         |
+| Volume              | `oracle-data`                  | ❌ Non                 |
+| RAM limite          | `4G`                           | 🟡 Selon votre machine |
 
 ---
 
@@ -486,7 +505,7 @@ Avant de passer au lab suivant, vérifiez :
 
 ---
 
-## 🔜 Prochaine étape
+##  Prochaine étape
 
 Le fichier de configuration est prêt !
 
@@ -494,7 +513,7 @@ Le fichier de configuration est prêt !
 
 ---
 
-## 📚 Pour aller plus loin
+##  Pour aller plus loin
 
 - [Documentation Docker Compose](https://docs.docker.com/compose/compose-file/)
 - [Image gvenzl/oracle-free](https://github.com/gvenzl/oci-oracle-free)

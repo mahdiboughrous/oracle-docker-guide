@@ -231,4 +231,4 @@ Pour toute question sur l'utilisation pédagogique de ce guide :
 
 ---
 
-**Bon enseignement ! 🎓**
+**Bon enseignement ! **

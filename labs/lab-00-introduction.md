@@ -1,10 +1,5 @@
 # Lab 00 : Introduction et concepts de base
 
-> **Durée estimée** : 15 minutes  
-> **Niveau** : Débutant
-
----
-
 ## Objectifs
 
 À la fin de ce lab, vous serez capable de :
@@ -16,9 +11,9 @@
 
 ---
 
-> 💡 **Conseil important**  
-> Tout au long de ce TP, vous serez amené à **observer** ce qui se passe sur votre machine.  
-> Ce que vous observez pendant l'exécution sera plus important que ce que vous lirez après.  
+> 💡 **Conseil important**
+> Tout au long de ce TP, vous serez amené à **observer** ce qui se passe sur votre machine.
+> Ce que vous observez pendant l'exécution sera plus important que ce que vous lirez après.
 > Prenez le temps de noter les messages importants, les erreurs rencontrées, et les temps d'exécution.
 
 ---
@@ -33,25 +28,13 @@
 
 Imaginez Docker comme un conteneur maritime :
 
-```
-┌─────────────────────────────────────┐
-│  Conteneur Docker                   │
-│                                     │
-│  ┌───────────────────────────────┐ │
-│  │  Oracle Database 23c          │ │
-│  ├───────────────────────────────┤ │
-│  │  Java Runtime                 │ │
-│  ├───────────────────────────────┤ │
-│  │  Bibliothèques système        │ │
-│  ├───────────────────────────────┤ │
-│  │  Configuration Oracle         │ │
-│  └───────────────────────────────┘ │
-│                                     │
-│  Tout est isolé et portable !      │
-└─────────────────────────────────────┘
-```
+
+![Analogie conteneur Docker](images/labs/lab-00-analogie-1.jpg)
+
+
 
 **Avantages** :
+
 - 📦 **Portabilité** : Fonctionne partout (Windows, macOS, Linux)
 - 🔒 **Isolation** : N'affecte pas le reste de votre système
 - ⚡ **Rapidité** : Démarrage en quelques secondes
@@ -68,6 +51,7 @@ Une **image** est un modèle en lecture seule (comme un ISO ou un template).
 **Analogie** : Une image = un plan de maison
 
 **Exemple** :
+
 ```
 Image: gvenzl/oracle-free:23.4-slim
 - Oracle Database 23c Free
@@ -82,6 +66,7 @@ Un **conteneur** est une instance en cours d'exécution d'une image.
 **Analogie** : Un conteneur = une maison construite à partir du plan
 
 **Exemple** :
+
 ```
 Conteneur: oracle-db
 - Créé depuis l'image gvenzl/oracle-free:23.4-slim
@@ -91,15 +76,7 @@ Conteneur: oracle-db
 
 ### Relation Image ↔ Conteneur
 
-```
-Image (plan)                  Conteneur (instance)
-    │
-    │  docker run
-    ├────────────────────────▶  Conteneur 1 (oracle-db)
-    │
-    │  docker run
-    └────────────────────────▶  Conteneur 2 (oracle-db-test)
-```
+![Analogie conteneur Docker](images/labs/lab-00-analogie-2.jpg)
 
 > 💡 **Note** : Une seule image peut générer plusieurs conteneurs.
 
@@ -143,11 +120,13 @@ services:
 ```
 
 Et vous démarrez simplement avec :
+
 ```bash
 docker compose up -d
 ```
 
 **Avantages** :
+
 - ✅ Configuration lisible et versionnable
 - ✅ Reproductible (même config partout)
 - ✅ Facile à partager avec d'autres étudiants
@@ -161,32 +140,19 @@ Oracle 23c utilise une architecture **multi-tenant** (multi-locataire).
 
 ### Concepts clés
 
-| Terme | Nom complet | Description |
-|-------|-------------|-------------|
-| **CDB** | Container Database | Base de données racine (conteneur) |
+| Terme         | Nom complet        | Description                                        |
+| ------------- | ------------------ | -------------------------------------------------- |
+| **CDB** | Container Database | Base de données racine (conteneur)                |
 | **PDB** | Pluggable Database | Base de données "branchée" (où vous travaillez) |
 
 ### Analogie : Immeuble et appartements
 
-```
-┌─────────────────────────────────────────┐
-│  CDB: FREE (Container Database)         │  ← Immeuble
-│                                         │
-│  ┌─────────────────────────────────┐   │
-│  │  PDB: FREEPDB1                  │   │  ← Appartement 1
-│  │  (C'est ici que vous travaillez)│   │
-│  └─────────────────────────────────┘   │
-│                                         │
-│  ┌─────────────────────────────────┐   │
-│  │  PDB: FREEPDB2 (si créé)        │   │  ← Appartement 2 (optionnel)
-│  └─────────────────────────────────┘   │
-│                                         │
-└─────────────────────────────────────────┘
-```
+![Analogie conteneur Docker](images/labs/lab-00-analogie-3.jpg)
 
 ### Pourquoi cette architecture ?
 
 **Avantages** :
+
 - 🏢 **Mutualisation** : Une CDB peut héberger plusieurs PDB
 - 🔒 **Isolation** : Chaque PDB est indépendante
 - 📦 **Portabilité** : On peut "débrancher" une PDB et la brancher ailleurs
@@ -205,13 +171,13 @@ Oracle 23c utilise une architecture **multi-tenant** (multi-locataire).
 
 Lorsque vous vous connecterez avec SQL Developer (Lab 04), vous utiliserez :
 
-| Paramètre | Valeur | Explication |
-|-----------|--------|-------------|
-| **Hostname** | `localhost` | Votre machine (l'hôte) |
-| **Port** | `1521` | Port standard Oracle SQL*Net |
-| **Service Name** | `FREEPDB1` | Nom de votre PDB (pas la CDB) |
-| **Username** | `SYSTEM` | Utilisateur administrateur |
-| **Password** | `OraclePass123` | Défini dans `docker-compose.yml` |
+| Paramètre             | Valeur            | Explication                         |
+| ---------------------- | ----------------- | ----------------------------------- |
+| **Hostname**     | `localhost`     | Votre machine (l'hôte)             |
+| **Port**         | `1521`          | Port standard Oracle SQL*Net        |
+| **Service Name** | `FREEPDB1`      | Nom de votre PDB (pas la CDB)       |
+| **Username**     | `SYSTEM`        | Utilisateur administrateur          |
+| **Password**     | `OraclePass123` | Défini dans `docker-compose.yml` |
 
 ### Pourquoi `FREEPDB1` et pas `FREE` ?
 
@@ -263,6 +229,7 @@ Un **volume Docker** est un espace de stockage persistant géré par Docker.
 ```
 
 **Avantages** :
+
 - ✅ Données conservées même si le conteneur est supprimé
 - ✅ Sauvegarde/restauration facile
 - ✅ Performance optimale
@@ -310,30 +277,31 @@ Lab 06 : Nettoyer / Réinitialiser
 Avant de passer au lab suivant, assurez-vous de pouvoir répondre à :
 
 1. **Quelle est la différence entre une image et un conteneur ?**
+
    <details>
    <summary>Voir la réponse</summary>
    Une image est un modèle (plan), un conteneur est une instance en cours d'exécution (maison construite).
    </details>
-
 2. **Pourquoi utilise-t-on Docker Compose ?**
+
    <details>
    <summary>Voir la réponse</summary>
    Pour simplifier la configuration et rendre l'environnement reproductible avec un fichier YAML.
    </details>
-
 3. **Qu'est-ce qu'une PDB ?**
+
    <details>
    <summary>Voir la réponse</summary>
    Une Pluggable Database, c'est une base de données "branchée" dans une CDB, où l'on travaille.
    </details>
-
 4. **Quel service name utiliser pour se connecter ?**
+
    <details>
    <summary>Voir la réponse</summary>
    FREEPDB1 (pas FREE).
    </details>
-
 5. **À quoi sert un volume Docker ?**
+
    <details>
    <summary>Voir la réponse</summary>
    À persister les données même si le conteneur est supprimé.
@@ -357,7 +325,7 @@ Avant de passer au lab suivant, assurez-vous de pouvoir répondre à :
 
 ---
 
-## 📚 Ressources complémentaires
+##  Ressources complémentaires
 
 - [Documentation Docker](https://docs.docker.com/)
 - [Documentation Oracle Multi-tenant](https://docs.oracle.com/en/database/oracle/oracle-database/23/multi-tenant-administrators-guide.html)

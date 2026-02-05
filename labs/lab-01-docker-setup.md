@@ -1,10 +1,5 @@
 # Lab 01 : Vérifier votre installation Docker
 
-> **Durée estimée** : 10 minutes  
-> **Niveau** : Débutant
-
----
-
 ## Objectifs
 
 À la fin de ce lab, vous aurez :
@@ -32,6 +27,7 @@
 3. Attendez que l'icône Docker dans la barre des tâches affiche "Docker Desktop is running"
 
 **Indicateur visuel** :
+
 - ✅ Icône baleine verte = Docker fonctionne
 - ❌ Icône baleine rouge/grise = Docker en cours de démarrage ou arrêté
 
@@ -50,6 +46,7 @@ sudo systemctl status docker
 ```
 
 **Résultat attendu** :
+
 ```
 ● docker.service - Docker Application Container Engine
    Loaded: loaded
@@ -73,6 +70,7 @@ docker --version
 ```
 
 **Résultat attendu** :
+
 ```
 Docker version 24.0.7, build afdd53b
 ```
@@ -86,6 +84,7 @@ docker info
 ```
 
 **Résultat attendu** (extrait) :
+
 ```
 Client:
  Version:    24.0.7
@@ -103,9 +102,9 @@ Server:
 
 ✅ Si cette commande fonctionne, Docker est correctement installé.
 
->  **À noter pour la suite**  
-> Dans Docker Desktop, vérifiez les paramètres de ressources allouées (Settings > Resources).  
-> Oracle nécessite une configuration mémoire spécifique pour fonctionner correctement.  
+> **À noter pour la suite**
+> Dans Docker Desktop, vérifiez les paramètres de ressources allouées (Settings > Resources).
+> Oracle nécessite une configuration mémoire spécifique pour fonctionner correctement.
 > Observez la quantité de RAM actuellement allouée à Docker sur votre système.
 
 ---
@@ -119,6 +118,7 @@ docker compose version
 ```
 
 **Résultat attendu** :
+
 ```
 Docker Compose version v2.23.0
 ```
@@ -132,6 +132,7 @@ docker compose --help
 ```
 
 **Résultat attendu** :
+
 ```
 Usage:  docker compose [OPTIONS] COMMAND
 
@@ -210,6 +211,7 @@ docker images
 ```
 
 **Résultat attendu** :
+
 ```
 REPOSITORY      TAG       IMAGE ID       CREATED        SIZE
 hello-world     latest    9c7a54a9a43c   3 months ago   13.3kB
@@ -222,6 +224,7 @@ docker ps -a
 ```
 
 **Résultat attendu** :
+
 ```
 CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
 abc123def456   hello-world   "/hello"   2 minutes ago    Exited (0) 2 minutes ago              quirky_name
@@ -240,10 +243,12 @@ docker rm $(docker ps -aq)
 ```
 
 **Explication** :
+
 - `docker ps -aq` : liste tous les IDs de conteneurs (arrêtés ou non)
 - `docker rm` : supprime les conteneurs
 
 **Alternative Windows PowerShell** :
+
 ```powershell
 docker ps -aq | ForEach-Object { docker rm $_ }
 ```
@@ -258,17 +263,17 @@ docker rmi hello-world
 
 ## 📊 Récapitulatif des commandes essentielles
 
-| Commande | Description |
-|----------|-------------|
-| `docker --version` | Affiche la version de Docker |
-| `docker info` | Informations détaillées sur Docker |
-| `docker compose version` | Affiche la version de Compose |
-| `docker images` | Liste les images téléchargées |
-| `docker ps` | Liste les conteneurs actifs |
-| `docker ps -a` | Liste tous les conteneurs (actifs + arrêtés) |
-| `docker run <image>` | Crée et démarre un conteneur |
-| `docker rm <id>` | Supprime un conteneur |
-| `docker rmi <image>` | Supprime une image |
+| Commande                   | Description                                    |
+| -------------------------- | ---------------------------------------------- |
+| `docker --version`       | Affiche la version de Docker                   |
+| `docker info`            | Informations détaillées sur Docker           |
+| `docker compose version` | Affiche la version de Compose                  |
+| `docker images`          | Liste les images téléchargées               |
+| `docker ps`              | Liste les conteneurs actifs                    |
+| `docker ps -a`           | Liste tous les conteneurs (actifs + arrêtés) |
+| `docker run <image>`     | Crée et démarre un conteneur                 |
+| `docker rm <id>`         | Supprime un conteneur                          |
+| `docker rmi <image>`     | Supprime une image                             |
 
 ---
 
@@ -279,6 +284,7 @@ docker rmi hello-world
 **Cause** : Docker n'est pas installé ou pas dans le PATH.
 
 **Solution** :
+
 1. Vérifiez que Docker Desktop est bien installé
 2. Redémarrez votre terminal
 3. Sur Linux : vérifiez que le service Docker est actif (`sudo systemctl start docker`)
@@ -288,6 +294,7 @@ docker rmi hello-world
 **Cause** : Docker Desktop n'est pas lancé.
 
 **Solution** :
+
 1. Lancez Docker Desktop
 2. Attendez que l'icône baleine soit verte
 3. Réessayez la commande
@@ -297,6 +304,7 @@ docker rmi hello-world
 **Cause** : Votre utilisateur n'est pas dans le groupe `docker`.
 
 **Solution** :
+
 ```bash
 sudo usermod -aG docker $USER
 newgrp docker
@@ -309,6 +317,7 @@ Puis relancez votre terminal.
 **Cause** : Pas assez de ressources allouées à Docker.
 
 **Solution** :
+
 1. Ouvrez Docker Desktop > Settings > Resources
 2. Augmentez la RAM (minimum 4 Go, recommandé 8 Go)
 3. Augmentez les CPUs (minimum 2)
@@ -328,7 +337,7 @@ Avant de passer au lab suivant, vérifiez :
 
 ---
 
-## 🎓 Ce que vous avez appris
+##  Ce que vous avez appris
 
 - ✅ Docker et Docker Compose sont deux outils distincts
 - ✅ `docker` gère les conteneurs et images individuellement
@@ -337,7 +346,7 @@ Avant de passer au lab suivant, vérifiez :
 
 ---
 
-## 🔜 Prochaine étape
+##  Prochaine étape
 
 Votre environnement Docker est prêt !
 
@@ -345,7 +354,7 @@ Votre environnement Docker est prêt !
 
 ---
 
-## 📚 Pour aller plus loin
+##  Pour aller plus loin
 
 - [Documentation Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/)
 - [Documentation Docker Compose](https://docs.docker.com/compose/)

@@ -6,12 +6,12 @@ Ce document détaille les prérequis nécessaires pour suivre ce guide pratique.
 
 ## Configuration matérielle minimale
 
-| Ressource | Minimum | Recommandé |
-|-----------|---------|------------|
-| **RAM** | 8 Go | 16 Go |
-| **Espace disque** | 15 Go disponibles | 30 Go |
-| **Processeur** | Dual-core | Quad-core |
-| **Système** | Windows 10/11, macOS 11+, Linux | - |
+| Ressource               | Minimum                         | Recommandé |
+| ----------------------- | ------------------------------- | ----------- |
+| **RAM**           | 8 Go                            | 16 Go       |
+| **Espace disque** | 15 Go disponibles               | 30 Go       |
+| **Processeur**    | Dual-core                       | Quad-core   |
+| **Système**      | Windows 10/11, macOS 11+, Linux | -           |
 
 > ⚠️ **Attention** : Oracle Database nécessite beaucoup de ressources. Fermez les applications inutiles pendant les labs.
 
@@ -33,6 +33,7 @@ Docker Desktop est **obligatoire** pour ce guide.
 6. Attendez que Docker affiche "Docker Desktop is running"
 
 **Configuration WSL2 (Windows)** :
+
 - Docker Desktop utilise WSL2 (Windows Subsystem for Linux)
 - Si demandé, installez la mise à jour WSL2 depuis le lien fourni
 - Acceptez les paramètres par défaut
@@ -46,6 +47,7 @@ Docker Desktop est **obligatoire** pour ce guide.
 5. Autorisez Docker à accéder au système (mot de passe requis)
 
 **Architecture Apple Silicon (M1/M2/M3)** :
+
 - Téléchargez la version "Apple Chip"
 - La compatibilité x86 est gérée automatiquement
 
@@ -87,6 +89,7 @@ docker --version
 ```
 
 **Résultat attendu** :
+
 ```
 Docker version 24.0.x, build xxxxxxx
 ```
@@ -98,6 +101,7 @@ docker compose version
 ```
 
 **Résultat attendu** :
+
 ```
 Docker Compose version v2.x.x
 ```
@@ -119,18 +123,22 @@ Oracle SQL Developer est le client graphique recommandé pour se connecter à Or
 ### Installation
 
 #### Windows
+
 1. Téléchargez le fichier `.zip` (version "Windows 64-bit with JDK included")
 2. Décompressez l'archive
 3. Lancez `sqldeveloper.exe` depuis le dossier décompressé
 
 #### macOS
+
 1. Téléchargez le fichier `.dmg`
 2. Ouvrez le `.dmg` et glissez SQLDeveloper dans Applications
 3. Au premier lancement, faites un clic droit → Ouvrir (contournement de Gatekeeper)
 
 #### Linux
+
 1. Téléchargez l'archive `.zip` (avec JDK inclus)
 2. Décompressez dans votre dossier personnel
+
 ```bash
 unzip sqldeveloper-*-no-jre.zip -d ~/
 cd ~/sqldeveloper
@@ -140,6 +148,7 @@ cd ~/sqldeveloper
 ### Alternative : DBeaver (optionnel)
 
 Si vous préférez un client multi-bases de données :
+
 - Téléchargez [DBeaver Community](https://dbeaver.io/download/)
 - Compatible avec Oracle (driver JDBC inclus)
 
@@ -152,7 +161,7 @@ Une connexion Internet est nécessaire pour :
 - Télécharger l'image Docker Oracle (environ **2,5 Go**)
 - Télécharger les dépendances lors du premier démarrage
 
-> 💡 **Conseil** : Utilisez une connexion filaire ou WiFi stable. Le téléchargement initial peut prendre 10-30 minutes selon votre débit.
+> 💡 **Conseil** : Utilisez une connexion filaire ou WiFi campus de l'universite. Le téléchargement initial peut prendre 10-30 minutes selon votre débit.
 
 ---
 
@@ -161,11 +170,13 @@ Une connexion Internet est nécessaire pour :
 Vous aurez besoin d'un éditeur pour consulter/modifier les fichiers SQL et YAML.
 
 **Recommandé** :
+
 - [Visual Studio Code](https://code.visualstudio.com/) (gratuit, multiplateforme)
 - Notepad++ (Windows)
 - Sublime Text
 
 **Extensions VS Code utiles (optionnel)** :
+
 - Docker (Microsoft)
 - YAML (Red Hat)
 - SQL Formatter
@@ -177,6 +188,7 @@ Vous aurez besoin d'un éditeur pour consulter/modifier les fichiers SQL et YAML
 ### Terminal / Ligne de commande
 
 Vous devez savoir :
+
 - Ouvrir un terminal (PowerShell, Bash, Terminal)
 - Naviguer entre dossiers avec `cd`
 - Lister les fichiers avec `ls` (Unix/macOS) ou `dir` (Windows)
@@ -184,12 +196,14 @@ Vous devez savoir :
 ### SQL (niveau débutant)
 
 Des bases en SQL sont utiles mais pas obligatoires :
+
 - `SELECT`, `INSERT`, `CREATE TABLE`
 - Le guide explique chaque requête
 
 ### Docker (notion de base)
 
 Pas besoin d'être expert, mais il est utile de connaître :
+
 - Qu'est-ce qu'un conteneur (expliqué dans Lab 00)
 - Qu'est-ce qu'une image Docker (expliqué dans Lab 00)
 
@@ -204,6 +218,7 @@ docker run hello-world
 ```
 
 **Résultat attendu** :
+
 ```
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
